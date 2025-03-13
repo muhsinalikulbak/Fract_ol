@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fract_ol.c                                         :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mkulbak <mkulbak@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/13 19:20:28 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/13 20:28:36 by mkulbak          ###   ########.fr       */
+/*   Created: 2024/10/08 16:36:34 by mkulbak           #+#    #+#             */
+/*   Updated: 2024/10/27 19:26:35 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract_ol.h"
+#include "libft.h"
 
-int main()
+void	*ft_memset(void *s, int c, size_t n)
 {
-    void *init =  mlx_init();
-    mlx_new_window(init, 600, 800, "Muhsin");
-    mlx_loop(init);
+	size_t			i;
+	unsigned char	*str;
+
+	i = 0;
+	str = s;
+	while (i < n)
+	{
+		str[i] = c;
+		i++;
+	}
+	return (s);
 }

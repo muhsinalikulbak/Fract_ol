@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fract_ol.c                                         :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mkulbak <mkulbak@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/13 19:20:28 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/13 20:28:36 by mkulbak          ###   ########.fr       */
+/*   Created: 2024/10/07 19:08:49 by mkulbak           #+#    #+#             */
+/*   Updated: 2024/10/29 07:39:53 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract_ol.h"
+#include "libft.h"
 
-int main()
+int	ft_isalnum(int c)
 {
-    void *init =  mlx_init();
-    mlx_new_window(init, 600, 800, "Muhsin");
-    mlx_loop(init);
+	if (ft_isdigit(c) || ft_isalpha(c))
+		return (1);
+	else
+		return (0);
 }

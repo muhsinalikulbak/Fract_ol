@@ -6,7 +6,13 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 19:20:24 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/13 19:20:25 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/13 20:04:21 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef FRACT_OL_H
+# define FRACT_OL_H
+#include "minilibx-linux/mlx.h"
+#include "stdio.h"
+
+#endif

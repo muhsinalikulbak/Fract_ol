@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fract_ol.c                                         :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mkulbak <mkulbak@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/13 19:20:28 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/13 20:28:36 by mkulbak          ###   ########.fr       */
+/*   Created: 2024/10/14 20:29:28 by mkulbak           #+#    #+#             */
+/*   Updated: 2024/10/18 21:42:34 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract_ol.h"
+#include "libft.h"
 
-int main()
+char	*ft_strrchr(const char *s, int c)
 {
-    void *init =  mlx_init();
-    mlx_new_window(init, 600, 800, "Muhsin");
-    mlx_loop(init);
+	int	i;
+
+	i = ft_strlen(s);
+	while (i >= 0)
+	{
+		if (s[i] == (char)c)
+			return ((char *)(s + i));
+		i--;
+	}
+	return (NULL);
 }

@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fract_ol.c                                         :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mkulbak <mkulbak@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/13 19:20:28 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/13 20:28:36 by mkulbak          ###   ########.fr       */
+/*   Created: 2024/10/12 19:09:06 by mkulbak           #+#    #+#             */
+/*   Updated: 2024/10/26 05:33:41 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract_ol.h"
+#include "libft.h"
 
-int main()
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-    void *init =  mlx_init();
-    mlx_new_window(init, 600, 800, "Muhsin");
-    mlx_loop(init);
+	size_t	i;
+
+	if (!dst && !src)
+		return (NULL);
+	i = 0;
+	while (i < n)
+	{
+		*(unsigned char *)(dst + i) = *(unsigned char *)(src + i);
+		i++;
+	}
+	return (dst);
 }
