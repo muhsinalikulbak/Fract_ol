@@ -6,7 +6,7 @@
 #    By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/13 19:20:26 by mkulbak           #+#    #+#              #
-#    Updated: 2025/03/13 22:48:58 by mkulbak          ###   ########.fr        #
+#    Updated: 2025/03/14 02:45:10 by mkulbak          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,38 +25,39 @@ LIBFT = $(LIBFT_PATH)/libft.a
 SRCS = fract_ol.c
 OBJS = $(SRCS:.c=.o)
 
-# Sessiz çalıştırma için
 MAKEFLAGS += --silent
 
-all: $(NAME)
+all: $(NAME) clean_obj
 
 $(NAME): $(MLX) $(LIBFT) $(OBJS)
-	@echo "✅ $(NAME) oluşturuluyor..."
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MLX) $(LIBFT) $(MLX_FLAGS)
-	@echo "✅ $(NAME) hazır!"
+	echo "✅ $(NAME) oluşturuluyor..."
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MLX) $(LIBFT) $(MLX_FLAGS)
+	echo "✅ $(NAME) hazır!"
 
 $(MLX):
-	@echo "🔷 MLX derleniyor..."
-	@make -C $(MLX_PATH) --no-print-directory
-	@echo "✅ MLX hazır!"
+	echo "🔷 MLX derleniyor..."
+	make -C $(MLX_PATH) --no-print-directory
+	echo "✅ MLX hazır!"
 
 $(LIBFT):
-	@echo "🔷 LIBFT derleniyor..."
-	@make -C $(LIBFT_PATH) --no-print-directory
-	@echo "✅ LIBFT hazır!"
+	echo "🔷 LIBFT derleniyor..."
+	make -C $(LIBFT_PATH) --no-print-directory
+	echo "✅ LIBFT hazır!"
 
 clean:
-	@echo "🧹 Temizleniyor..."
-	@rm -f $(OBJS)
-	@make -C $(MLX_PATH) clean --no-print-directory
-	@make -C $(LIBFT_PATH) clean --no-print-directory
-	@echo "✅ Temizlik tamamlandı!"
+	echo "🧹 Temizleniyor..."
+	rm -f $(OBJS)
+	make -C $(MLX_PATH) clean --no-print-directory
+	make -C $(LIBFT_PATH) clean --no-print-directory
+	echo "✅ Temizlik tamamlandı!"
 
+clean_obj:
+				$(RM) $(OBJS)
 fclean: clean
-	@echo "🧹 Tam temizlik yapılıyor..."
-	@rm -f $(NAME)
-	@make -C $(LIBFT_PATH) fclean --no-print-directory
-	@echo "✅ Tam temizlik tamamlandı!"
+	echo "🧹 Tam temizlik yapılıyor..."
+	rm -f $(NAME)
+	make -C $(LIBFT_PATH) fclean --no-print-directory
+	echo "✅ Tam temizlik tamamlandı!"
 
 re: fclean all
 

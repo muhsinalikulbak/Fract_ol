@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mkulbak <mkulbak@student.42istanbul.com    +#+  +:+       +#+         #
+#    By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/28 22:23:51 by mkulbak           #+#    #+#              #
-#    Updated: 2024/10/29 21:29:14 by mkulbak          ###   ########.fr        #
+#    Updated: 2025/03/14 02:35:50 by mkulbak          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,10 +30,10 @@ RM				= rm -f
 CFLAGS			= -Wall -Wextra -Werror
 
 
-all:			$(NAME)
+all:			$(NAME) clean
 
 $(NAME):		$(OBJS)
-				ar rcs $(NAME) $(OBJS)
+				ar rcs $(NAME) $(OBJS) 
 
 clean:
 				$(RM) $(OBJS) $(BONUS_OBJS)
