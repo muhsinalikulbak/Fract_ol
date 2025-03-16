@@ -6,14 +6,13 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 19:20:28 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/16 03:15:17 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/16 08:24:49 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract_ol.h"
 
-
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+void	my_mlx_pixel_put(t_mlx_data	*data, int x, int y, int color)
 {
 	char	*dst;
 
@@ -21,28 +20,66 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	*(unsigned int*)dst = color;
 }
 
-int	mandel_equation(int z_reel, int z_imag, int c_reel, int c_imag)
+int	mandel_equation(t_mlx_data	*data, t_coordinates *coord, int x, int y)
 {
 	int	iteration;
 
-	iteration = 0;
-	z_reel = 0;
-	z_imag = 0;
+	iteration = 1;
+	coord->z_im = 0;
+	coord->z_re = 0;
+	coord->c_re = coord->x_min + (x / WIDTH) * (coord->x_max - coord->x_min);
+	coord->c_im = coord->y_min + (y / HEIGT) * (coord->y_max - coord->y_min);
+	while (iteration <= ITERATION)
+	{
+		coord->z_re = (coord->z_re * coord->z_re) - (coord->z_im * coord->z_im) + coord->c_re;
+		coord->z_im = 2 * coord->z_re * coord->z_im * coord->c_im;
+		
+	}
+}
+void	mlx_initializer(t_mlx_data **data, char *set_name)
+{
+	(*data)->init = mlx_init();
+	(*data)->win = mlx_new_window((*data)->init, WIDTH, HEIGT, set_name);
+	(*data)->img = mlx_new_image((*data)->init, WIDTH, HEIGT);
+	(*data)->addr = mlx_get_data_addr((*data)->img, &(*data)->bits_per_pixel, &(*data)->line_length, &(*data)->endian);
 }
 
-int	main(void)
+void	coordinates_initializer(t_coordinates **coord, int set_code)
 {
-	t_data	data;
+	if (set_code == 'M')
+	{
+		(*coord)->x_min = -2.0;
+		(*coord)->x_max = 1.0;
+		(*coord)->y_min = -1.5;
+		(*coord)->y_max = 1.5;
+	}
+	else if (set_code == 'J')
+	{
+		(*coord)->x_min = -2.0;
+		(*coord)->x_max = 2.0;
+		(*coord)->y_min = -2.0;
+		(*coord)->y_max = 2.0;
+	}
+}
 
-	data.init = mlx_init();
-	data.win = mlx_new_window(data.init, WIDTH, HEIGT, "Mandelbrot");
-	data.img = mlx_new_image(data.init, WIDTH, HEIGT);
-	data.addr = mlx_get_data_addr(data.img, &data.bits_per_pixel, &data.line_length, &data.endian);
-	
-	
+int	main(int argc, char **argv)
+{
+	// y satırı temsil eder dikey eksendir
+	// x sütunu temsil eder yatay eksendir
+	t_mlx_data		*data;
+	t_coordinates	*coordinates;
 
-
-
-
-	mlx_loop(data.init);
+	coordinates = malloc(sizeof(coordinates));
+	data = malloc(sizeof(t_mlx_data));
+	if (ft_strncmp(argv[1], "Mandelbrot", 10) == 0)
+	{
+		mlx_initializer(&data, "Mandelbrot");
+		coordinates_initializer(&coordinates, 'M');
+	}
+	else if (ft_strncmp(argv[1], "Julia", 5) == 0)
+	{
+		mlx_initializer(&data, "Julia");
+		coordinates_initializer(&coordinates, 'J');
+	}
+	mlx_loop(data->init);
 }
