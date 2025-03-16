@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 19:20:28 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/16 12:31:11 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/16 13:08:54 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,19 @@ void	my_mlx_pixel_put(t_mlx_data	*data, int x, int y, int color)
 
 int	mandel_equation(t_coordinates *coord, int x, int y)
 {
-	int	iteration;
+	int		iteration;
+	double	temp_reel;
 	//ZOOM yapıldıysa buraya girmeden önce max, min değerleri set edilecek
 	iteration = 1;
 	coord->z_im = 0;
 	coord->z_re = 0;
-	coord->c_re = coord->x_min + (x / WIDTH) * (coord->x_max - coord->x_min);
-	coord->c_im = coord->y_min + (y / HEIGT) * (coord->y_max - coord->y_min);
+	coord->c_re = coord->x_min + ((double)x / WIDTH) * (coord->x_max - coord->x_min);
+	coord->c_im = coord->y_min + ((double)y / HEIGT) * (coord->y_max - coord->y_min);
 	while (iteration <= ITERATION)
 	{
+		temp_reel = coord->z_re;
 		coord->z_re = (coord->z_re * coord->z_re) - (coord->z_im * coord->z_im) + coord->c_re;
-		coord->z_im = (2 * coord->z_re * coord->z_im ) + coord->c_im;
+		coord->z_im = (2 * temp_reel * coord->z_im ) + coord->c_im;
 		if ((coord->z_re * coord->z_re + coord->z_im * coord->z_im) > 4.0)
 			return iteration;
 		iteration++;
@@ -72,7 +74,6 @@ void	mandelbrot(t_mlx_data **data, t_coordinates **coord)
 	int	y;
 	int	iteration;
 
-	x = 0;
 	y = 0;
 	// Burasi Julia'yı yazdıktan sonra gerekli şeyler ortaksa main init olucak.
 	mlx_initializer(data, "Mandelbrot");
@@ -80,18 +81,16 @@ void	mandelbrot(t_mlx_data **data, t_coordinates **coord)
 	
 	while (y < HEIGT)
 	{
+		x = 0;
 		while (x < WIDTH)
 		{
 			iteration = mandel_equation(*coord, x, y);
-			my_mlx_pixel_put(*data, x, y, (iteration / ITERATION) * 255);
+			my_mlx_pixel_put(*data, x, y, (iteration * 0xFFFFFF) / ITERATION);
 			x++;
 		}
 		y++;
 	}
 	mlx_put_image_to_window((*data)->init, (*data)->win, (*data)->img, 0, 0);
-	mlx_loop((*data)->init);
-	
-	// mandel_equation(*coord);
 }
 
 int	main(int argc, char **argv)
