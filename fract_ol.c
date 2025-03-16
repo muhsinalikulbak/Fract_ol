@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 19:20:28 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/16 08:24:49 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/16 12:31:11 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 void	my_mlx_pixel_put(t_mlx_data	*data, int x, int y, int color)
 {
 	char	*dst;
-
+	
 	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
 	*(unsigned int*)dst = color;
 }
 
-int	mandel_equation(t_mlx_data	*data, t_coordinates *coord, int x, int y)
+int	mandel_equation(t_coordinates *coord, int x, int y)
 {
 	int	iteration;
-
+	//ZOOM yapıldıysa buraya girmeden önce max, min değerleri set edilecek
 	iteration = 1;
 	coord->z_im = 0;
 	coord->z_re = 0;
@@ -32,10 +32,14 @@ int	mandel_equation(t_mlx_data	*data, t_coordinates *coord, int x, int y)
 	while (iteration <= ITERATION)
 	{
 		coord->z_re = (coord->z_re * coord->z_re) - (coord->z_im * coord->z_im) + coord->c_re;
-		coord->z_im = 2 * coord->z_re * coord->z_im * coord->c_im;
-		
+		coord->z_im = (2 * coord->z_re * coord->z_im ) + coord->c_im;
+		if ((coord->z_re * coord->z_re + coord->z_im * coord->z_im) > 4.0)
+			return iteration;
+		iteration++;
 	}
+	return iteration;
 }
+
 void	mlx_initializer(t_mlx_data **data, char *set_name)
 {
 	(*data)->init = mlx_init();
@@ -62,6 +66,34 @@ void	coordinates_initializer(t_coordinates **coord, int set_code)
 	}
 }
 
+void	mandelbrot(t_mlx_data **data, t_coordinates **coord)
+{
+	int	x;
+	int	y;
+	int	iteration;
+
+	x = 0;
+	y = 0;
+	// Burasi Julia'yı yazdıktan sonra gerekli şeyler ortaksa main init olucak.
+	mlx_initializer(data, "Mandelbrot");
+	coordinates_initializer(coord, 'M');
+	
+	while (y < HEIGT)
+	{
+		while (x < WIDTH)
+		{
+			iteration = mandel_equation(*coord, x, y);
+			my_mlx_pixel_put(*data, x, y, (iteration / ITERATION) * 255);
+			x++;
+		}
+		y++;
+	}
+	mlx_put_image_to_window((*data)->init, (*data)->win, (*data)->img, 0, 0);
+	mlx_loop((*data)->init);
+	
+	// mandel_equation(*coord);
+}
+
 int	main(int argc, char **argv)
 {
 	// y satırı temsil eder dikey eksendir
@@ -69,15 +101,17 @@ int	main(int argc, char **argv)
 	t_mlx_data		*data;
 	t_coordinates	*coordinates;
 
-	coordinates = malloc(sizeof(coordinates));
+	if (argc < 2)
+		return 0; // Burada tüm mevcut setler listelenecek.
+	coordinates = malloc(sizeof(t_coordinates));
 	data = malloc(sizeof(t_mlx_data));
 	if (ft_strncmp(argv[1], "Mandelbrot", 10) == 0)
 	{
-		mlx_initializer(&data, "Mandelbrot");
-		coordinates_initializer(&coordinates, 'M');
+		mandelbrot(&data, &coordinates);
 	}
 	else if (ft_strncmp(argv[1], "Julia", 5) == 0)
 	{
+		// Julia için de yapılacak
 		mlx_initializer(&data, "Julia");
 		coordinates_initializer(&coordinates, 'J');
 	}
