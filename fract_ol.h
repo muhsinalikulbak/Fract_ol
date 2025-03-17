@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 19:20:24 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/17 07:49:21 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/17 14:59:43 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 # include  "libft/libft.h"
 # include <stdio.h>
 # include <math.h>
-
 typedef struct	s_data
 {
 	void	*init;
@@ -33,7 +32,6 @@ typedef struct	s_data
 	int		line_length;
 	int		endian;
 }				t_mlx_data;
-
 typedef struct s_coordinates
 {
 	double	iteration;
@@ -46,6 +44,8 @@ typedef struct s_coordinates
 	double	c_re;
 	double	c_im;
 }				t_coordinates;
-
+void	argv_check(int argc, char **argv);
+void	calc_pixel(t_mlx_data **data, t_coordinates **coord);
+void	my_mlx_pixel_put(t_mlx_data	*data, int x, int y, int color);
 
 #endif
