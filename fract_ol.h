@@ -6,14 +6,14 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 19:20:24 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/17 14:59:43 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/17 21:54:45 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACT_OL_H
 # define FRACT_OL_H
-# define WIDTH 860
-# define HEIGT 860
+# define WIDTH 800
+# define HEIGHT 800
 # define RESET   "\033[0m"
 # define RED     "\033[31m"
 # define GREEN   "\033[32m"
@@ -21,7 +21,7 @@
 # include "minilibx-linux/mlx.h"
 # include  "libft/libft.h"
 # include <stdio.h>
-# include <math.h>
+
 typedef struct	s_data
 {
 	void	*init;

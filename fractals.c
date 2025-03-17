@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 14:55:41 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/17 14:56:36 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/17 21:30:22 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int  mandel_equation(t_coordinates *coord, int x, int y)
 	coord->z_im = 0;
 	coord->z_re = 0;
 	coord->c_re = coord->x_min + ((double)x / WIDTH) * (coord->x_max - coord->x_min);
-	coord->c_im = coord->y_min + ((double)y / HEIGT) * (coord->y_max - coord->y_min);
+	coord->c_im = coord->y_min + ((double)y / HEIGHT) * (coord->y_max - coord->y_min);
 	while (iteration_count <= coord->iteration)
 	{
 		temp_reel = coord->z_re;
@@ -41,7 +41,7 @@ void	calc_pixel(t_mlx_data **data, t_coordinates **coord)
 	double	iteration_count;
 
 	y = 0;
-	while (y < HEIGT)
+	while (y < HEIGHT)
 	{
 		x = 0;
 		while (x < WIDTH)
