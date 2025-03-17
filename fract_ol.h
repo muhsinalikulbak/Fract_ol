@@ -6,16 +6,18 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 19:20:24 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/16 13:08:25 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/17 07:49:21 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACT_OL_H
 # define FRACT_OL_H
-# define ITERATION 1000
-# define WIDTH 1920
-# define HEIGT 1080
-
+# define WIDTH 860
+# define HEIGT 860
+# define RESET   "\033[0m"
+# define RED     "\033[31m"
+# define GREEN   "\033[32m"
+# define BLUE    "\033[34m"
 # include "minilibx-linux/mlx.h"
 # include  "libft/libft.h"
 # include <stdio.h>
@@ -34,6 +36,7 @@ typedef struct	s_data
 
 typedef struct s_coordinates
 {
+	double	iteration;
 	double	x_min;
 	double	x_max;
 	double	y_min;
