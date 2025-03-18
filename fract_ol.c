@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 19:20:28 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/19 01:17:29 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/19 02:07:25 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 
 int	main(int argc, char **argv)
 {
-	// y satırı temsil eder dikey eksendir
-	// x sütunu temsil eder yatay eksendir
 	t_mlx_data		*data;
 	t_coordinates	*coordinates;
-
+	// y satırı temsil eder dikey eksendir
+	// x sütunu temsil eder yatay eksendir
 	argv_check(argc, argv);
 	coordinates = malloc(sizeof(t_coordinates));
 	data = malloc(sizeof(t_mlx_data));

@@ -6,61 +6,61 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 14:55:41 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/19 01:18:34 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/19 02:17:14 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract_ol.h"
 
-static int  julia_equation(t_coordinates *coord, int x, int y)
+static int	julia_equation(t_coordinates *c, int x, int y)
 {
-	int		iteration_count;
+	int		iter;
 	double	temp_reel;
 
-	iteration_count = 1;
-	coord->z_im = coord->y_min + ((double)y / HEIGHT) * (coord->y_max - coord->y_min);
-	coord->z_re = coord->x_min + ((double)x / WIDTH) * (coord->x_max - coord->x_min);
-	coord->c_re = coord->julia_re;
-	coord->c_im = coord->julia_im;
-	while (iteration_count <= coord->iteration)
+	iter = 1;
+	c->z_re = c->x_min + ((double)x / WIDTH) * (c->x_max - c->x_min);
+	c->z_im = c->y_min + ((double)y / HEIGHT) * (c->y_max - c->y_min);
+	c->c_re = c->julia_re;
+	c->c_im = c->julia_im;
+	while (iter <= c->iteration)
 	{
-		temp_reel = coord->z_re;
-		coord->z_re = (coord->z_re * coord->z_re) - (coord->z_im * coord->z_im) + coord->c_re;
-		coord->z_im = (2 * temp_reel * coord->z_im ) + coord->c_im;
-		if ((coord->z_re * coord->z_re + coord->z_im * coord->z_im) > 4.0)
-			return iteration_count;
-		iteration_count++;
+		temp_reel = c->z_re;
+		c->z_re = (c->z_re * c->z_re) - (c->z_im * c->z_im) + c->c_re;
+		c->z_im = (2 * temp_reel * c->z_im) + c->c_im;
+		if ((c->z_re * c->z_re + c->z_im * c->z_im) > 4.0)
+			return (iter);
+		iter++;
 	}
-	return iteration_count;
+	return (iter);
 }
 
-static int  mandel_equation(t_coordinates *coord, int x, int y)
+static int	mandel_equation(t_coordinates *c, int x, int y)
 {
-	int		iteration_count;
+	int		iter;
 	double	temp_reel;
 
-	iteration_count = 1;
-	coord->z_im = 0;
-	coord->z_re = 0;
-	coord->c_re = coord->x_min + ((double)x / WIDTH) * (coord->x_max - coord->x_min);
-	coord->c_im = coord->y_min + ((double)y / HEIGHT) * (coord->y_max - coord->y_min);
-	while (iteration_count <= coord->iteration)
+	iter = 1;
+	c->z_re = 0;
+	c->z_im = 0;
+	c->c_re = c->x_min + ((double)x / WIDTH) * (c->x_max - c->x_min);
+	c->c_im = c->y_min + ((double)y / HEIGHT) * (c->y_max - c->y_min);
+	while (iter <= c->iteration)
 	{
-		temp_reel = coord->z_re;
-		coord->z_re = (coord->z_re * coord->z_re) - (coord->z_im * coord->z_im) + coord->c_re;
-		coord->z_im = (2 * temp_reel * coord->z_im ) + coord->c_im;
-		if ((coord->z_re * coord->z_re + coord->z_im * coord->z_im) > 4.0)
-			return iteration_count;
-		iteration_count++;
+		temp_reel = c->z_re;
+		c->z_re = (c->z_re * c->z_re) - (c->z_im * c->z_im) + c->c_re;
+		c->z_im = (2 * temp_reel * c->z_im) + c->c_im;
+		if ((c->z_re * c->z_re + c->z_im * c->z_im) > 4.0)
+			return (iter);
+		iter++;
 	}
-	return iteration_count;
+	return (iter);
 }
 
-void	calc_pixel(t_mlx_data *data, t_coordinates *coord)
+void	calc_pixel(t_mlx_data *data, t_coordinates *c)
 {
 	int		x;
 	int		y;
-	double	iteration_count;
+	double	iter;
 
 	y = 0;
 	while (y < HEIGHT)
@@ -68,8 +68,8 @@ void	calc_pixel(t_mlx_data *data, t_coordinates *coord)
 		x = 0;
 		while (x < WIDTH)
 		{
-			iteration_count = mandel_equation(coord, x, y);
-			my_mlx_pixel_put(data, x, y, (iteration_count * 0xEFCAE) / coord->iteration);
+			iter = mandel_equation(c, x, y);
+			my_mlx_pixel_put(data, x, y, (iter * 0xEFCAE) / c->iteration);
 			x++;
 		}
 		y++;

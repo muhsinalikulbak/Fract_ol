@@ -6,20 +6,20 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 14:31:41 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/18 20:48:51 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/19 02:04:47 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract_ol.h"
 
-static void	write_colored(char *color, char *text) 
+static void	write_colored(char *color, char *text)
 {
 	write(1, color, ft_strlen(color));
 	write(1, text, ft_strlen(text));
 	write(1, RESET, ft_strlen(RESET));
 }
 
-static void	print_fractals()
+static void	print_fractals(void)
 {
 	write_colored(RED, "\nInvalid Argument!\n");
 	write_colored(BLUE, "\nCurrent fractals : ");
@@ -33,7 +33,8 @@ void	argv_check(int argc, char **argv)
 	{
 		print_fractals();
 	}
-	else if (!ft_strncmp(argv[1], "Mandelbrot", 10) && !ft_strncmp(argv[1], "Julia", 5))
+	else if (!ft_strncmp(argv[1], "Mandelbrot", 10)
+		&& !ft_strncmp(argv[1], "Julia", 5))
 	{
 		print_fractals();
 	}
@@ -47,6 +48,5 @@ void	argv_check(int argc, char **argv)
 		{
 			print_fractals();
 		}
-		// 4 Argüman varsa sayı kontrolleri yapılıcak
 	}
 }
