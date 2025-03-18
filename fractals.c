@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 14:55:41 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/18 20:46:18 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/19 01:18:34 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static int  mandel_equation(t_coordinates *coord, int x, int y)
 	return iteration_count;
 }
 
-void	calc_pixel(t_mlx_data **data, t_coordinates **coord)
+void	calc_pixel(t_mlx_data *data, t_coordinates *coord)
 {
 	int		x;
 	int		y;
@@ -68,11 +68,11 @@ void	calc_pixel(t_mlx_data **data, t_coordinates **coord)
 		x = 0;
 		while (x < WIDTH)
 		{
-			iteration_count = mandel_equation(*coord, x, y);
-			my_mlx_pixel_put(*data, x, y, (iteration_count * 0xEFCAE) / (*coord)->iteration);
+			iteration_count = mandel_equation(coord, x, y);
+			my_mlx_pixel_put(data, x, y, (iteration_count * 0xEFCAE) / coord->iteration);
 			x++;
 		}
 		y++;
 	}
-	mlx_put_image_to_window((*data)->init, (*data)->win, (*data)->img, 0, 0);
+	mlx_put_image_to_window(data->init, data->win, data->img, 0, 0);
 }

@@ -6,14 +6,16 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 19:20:24 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/18 20:46:43 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/19 01:35:10 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACT_OL_H
 # define FRACT_OL_H
-# define WIDTH 800
-# define HEIGHT 800
+# define WIDTH 1920
+# define HEIGHT 1080
+# define MANDELBROT 1
+# define JULIA 2
 # define RESET   "\033[0m"
 # define RED     "\033[31m"
 # define GREEN   "\033[32m"
@@ -21,6 +23,7 @@
 # include "minilibx-linux/mlx.h"
 # include  "libft/libft.h"
 # include <stdio.h>
+# include <math.h>
 
 typedef struct	s_data
 {
@@ -47,8 +50,18 @@ typedef struct s_coordinates
 	double	julia_re;
 	double	julia_im;
 }				t_coordinates;
-void	argv_check(int argc, char **argv);
-void	calc_pixel(t_mlx_data **data, t_coordinates **coord);
-void	my_mlx_pixel_put(t_mlx_data	*data, int x, int y, int color);
+typedef struct s_range
+{
+	double	x_min;
+	double	x_max;
+	double	y_min;
+	double	y_max;
+}				t_range;
 
+void	argv_check(int argc, char **argv);
+void	calc_pixel(t_mlx_data *data, t_coordinates *coord);
+void	my_mlx_pixel_put(t_mlx_data	*data, int x, int y, int color);
+void	initializer(t_mlx_data *data, t_coordinates *coord, char **argv);
+t_range	mandel_scale();
+t_range	julia_scale();
 #endif

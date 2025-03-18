@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fract_ol.c                                         :+:      :+:    :+:   */
+/*   dimensions.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/13 19:20:28 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/19 01:17:29 by mkulbak          ###   ########.fr       */
+/*   Created: 2025/03/19 01:20:38 by mkulbak           #+#    #+#             */
+/*   Updated: 2025/03/19 01:54:09 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract_ol.h"
 
-int	main(int argc, char **argv)
+t_range	mandel_scale(void)
 {
-	// y satırı temsil eder dikey eksendir
-	// x sütunu temsil eder yatay eksendir
-	t_mlx_data		*data;
-	t_coordinates	*coordinates;
+	t_range	range;
 
-	argv_check(argc, argv);
-	coordinates = malloc(sizeof(t_coordinates));
-	data = malloc(sizeof(t_mlx_data));
-	initializer(data, coordinates, argv);
-	calc_pixel(data, coordinates);
-	mlx_loop(data->init);
+	range.x_min = -2.0;
+	range.x_max = 1.0;
+	range.y_min = -1.5;
+	range.y_max = 1.5;
+	return (range);
+}
+
+t_range	julia_scale(void)
+{
+	t_range	range;
+
+	range.x_min = -1.5;
+	range.x_max = 1.5;
+	range.y_min = -1.5;
+	range.y_max = 1.5;
+	return (range);
 }
