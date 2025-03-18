@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 14:55:41 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/19 02:17:14 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/19 02:39:08 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ static int	mandel_equation(t_coordinates *c, int x, int y)
 	return (iter);
 }
 
-void	calc_pixel(t_mlx_data *data, t_coordinates *c)
+void	calc_pixel(t_mlx_data *data, t_coordinates *c,
+		int (*equation)(t_coordinates*, int, int))
 {
 	int		x;
 	int		y;
@@ -68,11 +69,19 @@ void	calc_pixel(t_mlx_data *data, t_coordinates *c)
 		x = 0;
 		while (x < WIDTH)
 		{
-			iter = mandel_equation(c, x, y);
+			iter = equation(c, x, y);
 			my_mlx_pixel_put(data, x, y, (iter * 0xEFCAE) / c->iteration);
 			x++;
 		}
 		y++;
 	}
 	mlx_put_image_to_window(data->init, data->win, data->img, 0, 0);
+}
+
+int	calc_fractal(t_mlx_data *data, t_coordinates *c)
+{
+	if (c->set == MANDELBROT)
+		calc_pixel(data, c, mandel_equation);
+	else if (c->set == JULIA)
+		calc_pixel(data, c, julia_equation);
 }
