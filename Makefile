@@ -6,7 +6,7 @@
 #    By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/13 19:20:26 by mkulbak           #+#    #+#              #
-#    Updated: 2025/03/17 22:51:01 by mkulbak          ###   ########.fr        #
+#    Updated: 2025/03/18 12:42:04 by mkulbak          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ OBJS = $(SRCS:.c=.o)
 
 MAKEFLAGS += --silent
 
-all: $(NAME) clean_obj
+all: $(NAME)
 
 $(NAME): $(MLX) $(LIBFT) $(OBJS)
 	echo "✅ $(NAME) oluşturuluyor..."
@@ -51,8 +51,6 @@ clean:
 	make -C $(LIBFT_PATH) clean --no-print-directory
 	echo "✅ Temizlik tamamlandı!"
 
-clean_obj:
-				$(RM) $(OBJS)
 fclean: clean
 	echo "🧹 Tam temizlik yapılıyor..."
 	rm -f $(NAME)
