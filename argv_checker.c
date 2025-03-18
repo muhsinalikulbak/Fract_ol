@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker_utils.c                                    :+:      :+:    :+:   */
+/*   argv_checker.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 14:31:41 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/17 14:35:09 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/18 20:48:51 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ static void	print_fractals()
 	write_colored(RED, "\nInvalid Argument!\n");
 	write_colored(BLUE, "\nCurrent fractals : ");
 	write_colored(GREEN, " Mandelbrot, Julia \n");
+	exit(EXIT_FAILURE);
 }
 
 void	argv_check(int argc, char **argv)
@@ -31,7 +32,21 @@ void	argv_check(int argc, char **argv)
 	if (argc < 2)
 	{
 		print_fractals();
-		exit(EXIT_FAILURE);
 	}
-	// else if (ft_strncmp(argv[1], "Julia", 5) )
+	else if (!ft_strncmp(argv[1], "Mandelbrot", 10) && !ft_strncmp(argv[1], "Julia", 5))
+	{
+		print_fractals();
+	}
+	else if (ft_strncmp(argv[1], "Mandelbrot", 10) && argc != 2)
+	{
+		print_fractals();
+	}
+	else if (ft_strncmp(argv[1], "Julia", 5))
+	{
+		if (argc != 4)
+		{
+			print_fractals();
+		}
+		// 4 Argüman varsa sayı kontrolleri yapılıcak
+	}
 }

@@ -6,11 +6,33 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 14:55:41 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/17 21:30:22 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/18 20:46:18 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract_ol.h"
+
+static int  julia_equation(t_coordinates *coord, int x, int y)
+{
+	int		iteration_count;
+	double	temp_reel;
+
+	iteration_count = 1;
+	coord->z_im = coord->y_min + ((double)y / HEIGHT) * (coord->y_max - coord->y_min);
+	coord->z_re = coord->x_min + ((double)x / WIDTH) * (coord->x_max - coord->x_min);
+	coord->c_re = coord->julia_re;
+	coord->c_im = coord->julia_im;
+	while (iteration_count <= coord->iteration)
+	{
+		temp_reel = coord->z_re;
+		coord->z_re = (coord->z_re * coord->z_re) - (coord->z_im * coord->z_im) + coord->c_re;
+		coord->z_im = (2 * temp_reel * coord->z_im ) + coord->c_im;
+		if ((coord->z_re * coord->z_re + coord->z_im * coord->z_im) > 4.0)
+			return iteration_count;
+		iteration_count++;
+	}
+	return iteration_count;
+}
 
 static int  mandel_equation(t_coordinates *coord, int x, int y)
 {

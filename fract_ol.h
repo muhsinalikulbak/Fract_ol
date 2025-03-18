@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 19:20:24 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/17 21:54:45 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/18 20:46:43 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct	s_data
 }				t_mlx_data;
 typedef struct s_coordinates
 {
+	int		set;
 	double	iteration;
 	double	x_min;
 	double	x_max;
@@ -43,6 +44,8 @@ typedef struct s_coordinates
 	double	z_im;
 	double	c_re;
 	double	c_im;
+	double	julia_re;
+	double	julia_im;
 }				t_coordinates;
 void	argv_check(int argc, char **argv);
 void	calc_pixel(t_mlx_data **data, t_coordinates **coord);
