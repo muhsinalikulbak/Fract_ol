@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 20:11:36 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/19 23:59:01 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/20 01:01:13 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,9 @@ static double	decimal_part(int i, double res, const char *str)
 	double	decimal_factor;
 
 	decimal_factor = 0.1;
-	if (str[i] != '\0')
+	if (str[i] == '.')
 	{
-		while (ft_isdigit(str[i]))
-			i++;
+		i++;
 		while (str[i])
 		{
 			res += (str[i] - '0') * decimal_factor;

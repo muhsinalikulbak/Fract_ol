@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 23:51:55 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/20 00:33:36 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/20 00:59:44 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,8 @@ static void	coordinates_initializer(t_set_data *set_data, char **argv)
 	else if (set_data->set == JULIA)
 	{
 		scaling(set_data, julia_scale());
-		// printf("reel kısım : %f\n",ft_atob(argv[2]));
-		// printf("sanal kısım : %f\n",ft_atob(argv[3]));
-		set_data->julia_re = -0.8;
-		set_data->julia_im = 0.156;
+		set_data->julia_re = ft_atob(argv[2]);
+		set_data->julia_im = ft_atob(argv[3]);
 	}
 }
 
