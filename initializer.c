@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 23:51:55 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/19 01:46:39 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/19 02:57:31 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	mlx_initializer(t_mlx_data *data, char *set_name)
 			&data->bits_per_pixel, &data->line_length, &data->endian);
 }
 
-static void	scaling(t_coordinates *coord, t_range range)
+static void	scaling(t_set_data *set_data, t_range range)
 {
 	double	aspect_ratio;
 	double	range_x;
@@ -44,36 +44,36 @@ static void	scaling(t_coordinates *coord, t_range range)
 		range.y_min = center_y - (range_y / aspect_ratio) / 2.0;
 		range.y_max = center_y + (range_y / aspect_ratio) / 2.0;
 	}
-	coord->x_min = range.x_min;
-	coord->x_max = range.x_max;
-	coord->y_min = range.y_min;
-	coord->y_max = range.y_max;
+	set_data->x_min = range.x_min;
+	set_data->x_max = range.x_max;
+	set_data->y_min = range.y_min;
+	set_data->y_max = range.y_max;
 }
 
-static void	coordinates_initializer(t_coordinates *coord)
+static void	coordinates_initializer(t_set_data *set_data)
 {
-	if (coord->set == MANDELBROT)
+	if (set_data->set == MANDELBROT)
 	{
-		scaling(coord, mandel_scale());
+		scaling(set_data, mandel_scale());
 	}
-	else if (coord->set == JULIA)
+	else if (set_data->set == JULIA)
 	{
-		scaling(coord, julia_scale());
+		scaling(set_data, julia_scale());
 	}
 }
 
-static void	set_name_initalize(t_coordinates *coord, char **argv)
+static void	set_name_initalize(t_set_data *set_data, char **argv)
 {
 	if (ft_strncmp(argv[1], "Mandelbrot", 10))
-		coord->set = MANDELBROT;
+		set_data->set = MANDELBROT;
 	else if (ft_strncmp(argv[1], "Julia", 5))
-		coord->set = JULIA;
+		set_data->set = JULIA;
 }
 
-void	initializer(t_mlx_data *data, t_coordinates *coord, char **argv)
+void	initializer(t_mlx_data *data, t_set_data *set_data, char **argv)
 {
 	mlx_initializer(data, argv[1]);
-	set_name_initalize(coord, argv);
-	coordinates_initializer(coord);
-	coord->iteration = 300;
+	set_name_initalize(set_data, argv);
+	coordinates_initializer(set_data);
+	set_data->iteration = 300;
 }

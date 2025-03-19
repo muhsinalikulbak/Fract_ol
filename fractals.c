@@ -6,13 +6,13 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 14:55:41 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/19 02:39:08 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/19 03:09:30 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract_ol.h"
 
-static int	julia_equation(t_coordinates *c, int x, int y)
+static int	julia_equation(t_set_data *c, int x, int y)
 {
 	int		iter;
 	double	temp_reel;
@@ -34,7 +34,7 @@ static int	julia_equation(t_coordinates *c, int x, int y)
 	return (iter);
 }
 
-static int	mandel_equation(t_coordinates *c, int x, int y)
+static int	mandel_equation(t_set_data *c, int x, int y)
 {
 	int		iter;
 	double	temp_reel;
@@ -56,8 +56,8 @@ static int	mandel_equation(t_coordinates *c, int x, int y)
 	return (iter);
 }
 
-void	calc_pixel(t_mlx_data *data, t_coordinates *c,
-		int (*equation)(t_coordinates*, int, int))
+static void	calc_pixel(t_mlx_data *data, t_set_data *c,
+		int (*equation)(t_set_data*, int, int))
 {
 	int		x;
 	int		y;
@@ -78,7 +78,7 @@ void	calc_pixel(t_mlx_data *data, t_coordinates *c,
 	mlx_put_image_to_window(data->init, data->win, data->img, 0, 0);
 }
 
-int	calc_fractal(t_mlx_data *data, t_coordinates *c)
+int	calc_fractal(t_mlx_data *data, t_set_data *c)
 {
 	if (c->set == MANDELBROT)
 		calc_pixel(data, c, mandel_equation);

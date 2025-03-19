@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 19:20:24 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/19 02:26:57 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/19 03:11:21 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef struct s_data
 	int		line_length;
 	int		endian;
 }				t_mlx_data;
-typedef struct s_coordinates
+typedef struct s_set_data
 {
 	int		set;
 	double	iteration;
@@ -49,7 +49,7 @@ typedef struct s_coordinates
 	double	c_im;
 	double	julia_re;
 	double	julia_im;
-}				t_coordinates;
+}				t_set_data;
 typedef struct s_range
 {
 	double	x_min;
@@ -59,9 +59,9 @@ typedef struct s_range
 }				t_range;
 
 void	argv_check(int argc, char **argv);
-void	calc_pixel(t_mlx_data *data, t_coordinates *coord);
 void	my_mlx_pixel_put(t_mlx_data	*data, int x, int y, int color);
-void	initializer(t_mlx_data *data, t_coordinates *coord, char **argv);
+void	initializer(t_mlx_data *data, t_set_data *coord, char **argv);
+int		calc_fractal(t_mlx_data *data, t_set_data *c);
 t_range	mandel_scale(void);
 t_range	julia_scale(void);
 #endif
