@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 19:20:28 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/19 20:10:19 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/20 00:10:45 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 	data = malloc(sizeof(t_mlx_data));
 	initializer(data, set_data, argv);
 	calc_fractal(data, set_data);
-
+	
 	
 	mlx_loop(data->init);
 }

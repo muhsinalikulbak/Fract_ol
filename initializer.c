@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 23:51:55 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/19 02:57:31 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/20 00:33:36 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static void	scaling(t_set_data *set_data, t_range range)
 	set_data->y_max = range.y_max;
 }
 
-static void	coordinates_initializer(t_set_data *set_data)
+static void	coordinates_initializer(t_set_data *set_data, char **argv)
 {
 	if (set_data->set == MANDELBROT)
 	{
@@ -59,6 +59,10 @@ static void	coordinates_initializer(t_set_data *set_data)
 	else if (set_data->set == JULIA)
 	{
 		scaling(set_data, julia_scale());
+		// printf("reel kısım : %f\n",ft_atob(argv[2]));
+		// printf("sanal kısım : %f\n",ft_atob(argv[3]));
+		set_data->julia_re = -0.8;
+		set_data->julia_im = 0.156;
 	}
 }
 
@@ -74,6 +78,6 @@ void	initializer(t_mlx_data *data, t_set_data *set_data, char **argv)
 {
 	mlx_initializer(data, argv[1]);
 	set_name_initalize(set_data, argv);
-	coordinates_initializer(set_data);
+	coordinates_initializer(set_data, argv);
 	set_data->iteration = 300;
 }

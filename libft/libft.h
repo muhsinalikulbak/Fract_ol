@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 14:21:41 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/18 20:50:05 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/19 22:57:43 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 bool	ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 char	*ft_strdup(const char	*s1);
-int		ft_atoi(const char *str);
+double	ft_atob(const char *str);
 void	*ft_calloc(size_t count, size_t size);
 size_t	ft_strlen(const char *s);
 void	ft_bzero(void *s, size_t n);
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
-int		ft_isdigit(int c);
+bool	ft_isdigit(int c);
 int		ft_isprint(int c);
 void	*ft_memset(void *s, int c, size_t n);
 void	*ft_memcpy(void *dst, const void *src, size_t n);

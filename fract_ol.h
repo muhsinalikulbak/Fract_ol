@@ -6,14 +6,14 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 19:20:24 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/19 20:08:13 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/20 00:34:02 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACT_OL_H
 # define FRACT_OL_H
-# define WIDTH 1920
-# define HEIGHT 1080
+# define WIDTH 800
+# define HEIGHT 800
 # define MANDELBROT 1
 # define JULIA 2
 # define RESET   "\033[0m"
@@ -22,8 +22,8 @@
 # define BLUE    "\033[34m"
 # include "minilibx-linux/mlx.h"
 # include "libft/libft.h"
-# include <stdio.h>
 # include <math.h>
+# include <stdio.h>
 
 typedef struct s_data
 {
