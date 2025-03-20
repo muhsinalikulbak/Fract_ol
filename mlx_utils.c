@@ -6,13 +6,13 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 14:55:15 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/19 02:01:17 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/21 00:51:24 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract_ol.h"
 
-void	my_mlx_pixel_put(t_mlx_data	*data, int x, int y, int color)
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
 	char	*dst;
 

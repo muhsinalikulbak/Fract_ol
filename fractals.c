@@ -6,13 +6,13 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 14:55:41 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/20 00:23:46 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/21 00:52:12 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract_ol.h"
 
-static int	julia_equation(t_set_data *set, int x, int y)
+static int	julia_equation(t_data *set, int x, int y)
 {
 	int		iter;
 	double	temp_reel;
@@ -35,7 +35,7 @@ static int	julia_equation(t_set_data *set, int x, int y)
 	return (iter);
 }
 
-static int	mandel_equation(t_set_data *set, int x, int y)
+static int	mandel_equation(t_data *set, int x, int y)
 {
 	int		iter;
 	double	temp_reel;
@@ -58,8 +58,7 @@ static int	mandel_equation(t_set_data *set, int x, int y)
 	return (iter);
 }
 
-static void	calc_pixel(t_mlx_data *data, t_set_data *set,
-		int (*equation)(t_set_data*, int, int))
+static void	calc_pixel(t_data *data, int (*equation)(t_data*, int, int))
 {
 	int		x;
 	int		y;
@@ -71,8 +70,8 @@ static void	calc_pixel(t_mlx_data *data, t_set_data *set,
 		x = 0;
 		while (x < WIDTH)
 		{
-			iter = equation(set, x, y);
-			my_mlx_pixel_put(data, x, y, (iter * 0xEFCAE) / set->iteration);
+			iter = equation(data, x, y);
+			my_mlx_pixel_put(data, x, y, (iter * 0xEFCAE) / data->iteration);
 			x++;
 		}
 		y++;
@@ -80,10 +79,10 @@ static void	calc_pixel(t_mlx_data *data, t_set_data *set,
 	mlx_put_image_to_window(data->init, data->win, data->img, 0, 0);
 }
 
-int	calc_fractal(t_mlx_data *data, t_set_data *set)
+int	calc_fractal(t_data *data)
 {
-	if (set->set == MANDELBROT)
-		calc_pixel(data, set, mandel_equation);
-	else if (set->set == JULIA)
-		calc_pixel(data, set, julia_equation);
+	if (data->set == MANDELBROT)
+		calc_pixel(data, mandel_equation);
+	else if (data->set == JULIA)
+		calc_pixel(data, julia_equation);
 }
