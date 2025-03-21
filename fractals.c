@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 14:55:41 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/21 18:58:29 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/21 21:17:21 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ static void	calc_pixel(t_data *f, int (*equation)(t_data*, int, int))
 	mlx_put_image_to_window(f->init, f->win, f->img, 0, 0);
 }
 
-int	calc_fractal(t_data *f)
+void	calc_fractal(t_data *f)
 {
 	if (f->set == MANDELBROT)
 		calc_pixel(f, mandel_equation);
