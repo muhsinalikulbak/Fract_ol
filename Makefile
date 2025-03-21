@@ -6,7 +6,7 @@
 #    By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/13 19:20:26 by mkulbak           #+#    #+#              #
-#    Updated: 2025/03/20 00:35:53 by mkulbak          ###   ########.fr        #
+#    Updated: 2025/03/21 20:57:52 by mkulbak          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ MLX_FLAGS = -L$(MLX_PATH) -lmlx -lXext -lX11 -lm
 LIBFT_PATH = libft
 LIBFT = $(LIBFT_PATH)/libft.a
 
-SRCS = fract_ol.c  argv_checker.c fractals.c mlx_utils.c initializer.c dimensions.c
+SRCS = fract_ol.c  argv_checker.c fractals.c mlx_utils.c initializer.c dimensions.c event.c
 
 MAKEFLAGS += --silent
 

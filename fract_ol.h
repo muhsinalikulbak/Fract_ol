@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 19:20:24 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/21 18:43:06 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/21 20:57:06 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ void	argv_check(int argc, char **argv);
 void	my_mlx_pixel_put(t_data	*data, int x, int y, int color);
 void	initializer(t_data *data, char **argv, int argc);
 int		calc_fractal(t_data *data);
+int		end_fractal(t_data *data);
+int		key_event(int keycode, t_data *data);
 t_range	mandel_scale(void);
 t_range	julia_scale(void);
 #endif
