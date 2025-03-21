@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keys.h                                             :+:      :+:    :+:   */
+/*   event.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/21 16:23:18 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/21 18:41:11 by mkulbak          ###   ########.fr       */
+/*   Created: 2025/03/21 18:47:20 by mkulbak           #+#    #+#             */
+/*   Updated: 2025/03/21 18:56:19 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "fract_ol.h"
 
-#ifndef KEYS_H
-# define KEYS_H
-
-# define EVENT_CLOSE_BTN 17
-# define KEY_ESC 65307
-# define KEY_W 119
-# define KEY_A 97
-# define KEY_S 115
-# define KEY_D 100
-# define SCROOL_UP 4
-# define SCROOL_DOWN 5
-#endif
+void    key_event(int keycode, t_data *data)
+{
+    
+}

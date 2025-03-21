@@ -6,22 +6,22 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 23:51:55 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/21 18:33:47 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/21 19:00:07 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract_ol.h"
 
-static void	mlx_initializer(t_data *data, char *set_name)
+static void	mlx_initializer(t_data *mlx, char *set_name)
 {
-	data->init = mlx_init();
-	data->win = mlx_new_window(data->init, WIDTH, HEIGHT, set_name);
-	data->img = mlx_new_image(data->init, WIDTH, HEIGHT);
-	data->addr = mlx_get_data_addr(data->img,
-			&data->bits_per_pixel, &data->line_length, &data->endian);
+	mlx->init = mlx_init();
+	mlx->win = mlx_new_window(mlx->init, WIDTH, HEIGHT, set_name);
+	mlx->img = mlx_new_image(mlx->init, WIDTH, HEIGHT);
+	mlx->addr = mlx_get_data_addr(mlx->img,
+			&mlx->bits_per_pixel, &mlx->line_length, &mlx->endian);
 }
 
-static void	scaling(t_data *data, t_range range)
+static void	scaling(t_data *f, t_range range)
 {
 	double	aspect_ratio;
 	double	range_x;
@@ -44,38 +44,38 @@ static void	scaling(t_data *data, t_range range)
 		range.y_min = center_y - (range_y / aspect_ratio) / 2.0;
 		range.y_max = center_y + (range_y / aspect_ratio) / 2.0;
 	}
-	data->x_min = range.x_min;
-	data->x_max = range.x_max;
-	data->y_min = range.y_min;
-	data->y_max = range.y_max;
+	f->x_min = range.x_min;
+	f->x_max = range.x_max;
+	f->y_min = range.y_min;
+	f->y_max = range.y_max;
 }
 
-static void	coordinates_initializer(t_data *data, char **argv, int argc)
+static void	coordinates_initializer(t_data *f, char **argv, int argc)
 {
-	if (data->set == MANDELBROT)
-		scaling(data, mandel_scale());
-	else if (data->set == JULIA)
+	if (f->set == MANDELBROT)
+		scaling(f, mandel_scale());
+	else if (f->set == JULIA)
 	{
-		scaling(data, julia_scale());
+		scaling(f, julia_scale());
 		if (argc == 4)
 		{
-			data->julia_re = ft_atob(argv[2]);
-			data->julia_im = ft_atob(argv[3]);
+			f->julia_re = ft_atob(argv[2]);
+			f->julia_im = ft_atob(argv[3]);
 		}
 		else
 		{
-			data->julia_re = -0.8;
-			data->julia_im = 0.156;
+			f->julia_re = -0.8;
+			f->julia_im = 0.156;
 		}
 	}
 }
 
-static void	set_name_initalize(t_data *data, char *set)
+static void	set_name_initalize(t_data *f, char *set)
 {
 	if (ft_strncmp(set, "Mandelbrot", 10))
-		data->set = MANDELBROT;
+		f->set = MANDELBROT;
 	else if (ft_strncmp(set, "Julia", 5))
-		data->set = JULIA;
+		f->set = JULIA;
 }
 
 void	initializer(t_data *data, char **argv, int argc)
