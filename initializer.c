@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 23:51:55 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/21 00:49:06 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/21 18:33:47 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,32 +50,39 @@ static void	scaling(t_data *data, t_range range)
 	data->y_max = range.y_max;
 }
 
-static void	coordinates_initializer(t_data *data, char **argv)
+static void	coordinates_initializer(t_data *data, char **argv, int argc)
 {
 	if (data->set == MANDELBROT)
-	{
 		scaling(data, mandel_scale());
-	}
 	else if (data->set == JULIA)
 	{
 		scaling(data, julia_scale());
-		data->julia_re = ft_atob(argv[2]);
-		data->julia_im = ft_atob(argv[3]);
+		if (argc == 4)
+		{
+			data->julia_re = ft_atob(argv[2]);
+			data->julia_im = ft_atob(argv[3]);
+		}
+		else
+		{
+			data->julia_re = -0.8;
+			data->julia_im = 0.156;
+		}
 	}
 }
 
-static void	set_name_initalize(t_data *data, char **argv)
+static void	set_name_initalize(t_data *data, char *set)
 {
-	if (ft_strncmp(argv[1], "Mandelbrot", 10))
+	if (ft_strncmp(set, "Mandelbrot", 10))
 		data->set = MANDELBROT;
-	else if (ft_strncmp(argv[1], "Julia", 5))
+	else if (ft_strncmp(set, "Julia", 5))
 		data->set = JULIA;
 }
 
-void	initializer(t_data *data, char **argv)
+void	initializer(t_data *data, char **argv, int argc)
 {
 	mlx_initializer(data, argv[1]);
-	set_name_initalize(data, argv);
-	coordinates_initializer(data, argv);
+	set_name_initalize(data, argv[1]);
+	coordinates_initializer(data, argv, argc);
+	data->inc = 0.5;
 	data->iteration = 300;
 }

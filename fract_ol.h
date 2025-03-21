@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 19:20:24 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/21 00:51:10 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/21 18:21:36 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # define RED     "\033[31m"
 # define GREEN   "\033[32m"
 # define BLUE    "\033[34m"
+# include "keys.h"
 # include "minilibx-linux/mlx.h"
 # include "libft/libft.h"
 # include <math.h>
@@ -36,6 +37,7 @@ typedef struct s_data
 	int		endian;
 	int		set;
 	double	iteration;
+	double	inc;
 	double	x_min;
 	double	x_max;
 	double	y_min;
@@ -57,7 +59,7 @@ typedef struct s_range
 
 void	argv_check(int argc, char **argv);
 void	my_mlx_pixel_put(t_data	*data, int x, int y, int color);
-void	initializer(t_data *data, char **argv);
+void	initializer(t_data *data, char **argv, int argc);
 int		calc_fractal(t_data *data);
 t_range	mandel_scale(void);
 t_range	julia_scale(void);

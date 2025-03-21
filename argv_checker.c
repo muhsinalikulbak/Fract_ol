@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 14:31:41 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/19 23:56:54 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/21 18:29:02 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,21 +83,15 @@ static bool	digit_check(char *str)
 void	argv_check(int argc, char **argv)
 {
 	if (argc < 2)
-	{
 		print_fractals();
-	}
-	else if (!ft_strncmp(argv[1], "Mandelbrot", 10)
-		&& !ft_strncmp(argv[1], "Julia", 5))
-	{
-		print_fractals();
-	}
-	else if (ft_strncmp(argv[1], "Mandelbrot", 10) && argc != 2)
-	{
-		print_fractals();
-	}
+	if (ft_strncmp(argv[1], "Mandelbrot", 10) && argc == 2)
+		return ;
 	else if (ft_strncmp(argv[1], "Julia", 5))
 	{
-		if (argc != 4 || !digit_check(argv[2]) || !digit_check(argv[3]))
-			print_fractals();
+		if (argc == 2)
+			return ;
+		if (argc == 4 && digit_check(argv[2]) && digit_check(argv[3]))
+			return ;
 	}
+	print_fractals();
 }
