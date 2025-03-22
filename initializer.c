@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 23:51:55 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/21 19:00:07 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/22 18:52:10 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,5 @@ void	initializer(t_data *data, char **argv, int argc)
 	set_name_initalize(data, argv[1]);
 	coordinates_initializer(data, argv, argc);
 	data->inc = 0.5;
-	data->iteration = 300;
+	data->iteration = 100;
 }

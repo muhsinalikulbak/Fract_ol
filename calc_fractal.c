@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractals.c                                         :+:      :+:    :+:   */
+/*   calc_fractal.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 14:55:41 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/21 21:17:21 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/22 22:25:07 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,12 @@ static void	calc_pixel(t_data *f, int (*equation)(t_data*, int, int))
 	int		y;
 	double	iter;
 
+	if (f->img)
+	{
+		mlx_destroy_image(f->init, f->img);
+		f->img = mlx_new_image(f->init, WIDTH, HEIGHT);
+		f->addr = mlx_get_data_addr(f->img, &f->bits_per_pixel, &f->line_length, &f->endian);
+	}
 	y = 0;
 	while (y < HEIGHT)
 	{
