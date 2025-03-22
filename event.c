@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 18:47:20 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/21 22:31:05 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/22 02:21:12 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,14 @@ static void	move(t_data *f, double distance, int keycode)
 	}
 	if (keycode == KEY_A)
 	{
-		
+		f->x_max -= range_x * distance;
+		f->x_min -= range_x * distance;
 	}
-	calc_fractal(f);
+	if (keycode == KEY_D)
+	{
+		f->x_max += range_x * distance;
+		f->x_min += range_x * distance;
+	}
 }
 
 int	end_fractal(t_data *data)
@@ -58,5 +63,6 @@ int	key_event(int keycode, t_data *data)
 		move(data, 0.1, KEY_S);
 	if (keycode == KEY_D)
 		move(data, 0.1, KEY_D);
+	calc_fractal(data);
 	return (0);
 }
