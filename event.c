@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 18:47:20 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/23 03:55:11 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/23 04:24:09 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,8 @@ int	key_event(int keycode, t_data *data)
 
 int	mouse_hook(int keycode, int x, int y, t_data *f)
 {
-	void (x);
-	void (y);
+	(void)x;
+	(void)y;
 	if (keycode == SCROOL_UP)
 		zoom(SCROOL_UP, f);
 	if (keycode == SCROOL_DOWN)
