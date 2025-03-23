@@ -6,14 +6,12 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 16:23:18 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/22 12:57:52 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/23 03:55:40 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #ifndef KEYS_H
 # define KEYS_H
-
 # define EVENT_CLOSE_BTN 17
 # define KEY_ESC 65307
 # define KEY_W 119
