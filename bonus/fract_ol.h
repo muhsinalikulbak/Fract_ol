@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 19:20:24 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/23 14:03:11 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/23 16:57:51 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ int		mlx_destroy(t_data *data);
 int		key_event(int keycode, t_data *data);
 void	realloc_image(t_data *f);
 int		mouse_hook(int keycode, int x, int y, t_data *f);
+int		mandel_equation(t_data *f, int x, int y);
+int		julia_equation(t_data *f, int x, int y);
 t_range	mandel_scale(void);
 t_range	julia_scale(void);
 #endif
