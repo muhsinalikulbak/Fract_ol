@@ -6,14 +6,14 @@
 #    By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/13 19:20:26 by mkulbak           #+#    #+#              #
-#    Updated: 2025/03/23 16:58:55 by mkulbak          ###   ########.fr        #
+#    Updated: 2025/03/24 19:12:31 by mkulbak          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fractol
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I../
+CFLAGS =  -I../
 
 MLX_PATH = ../minilibx-linux
 MLX = $(MLX_PATH)/libmlx.a

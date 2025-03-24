@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 19:20:24 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/23 16:57:51 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/24 22:56:55 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # define HEIGHT 800
 # define MANDELBROT 1
 # define JULIA 2
+# define TRICORN 3
+# define BURNING_SHIP 4
 # define RESET   "\033[0m"
 # define RED     "\033[31m"
 # define GREEN   "\033[32m"
@@ -48,6 +50,9 @@ typedef struct s_data
 	double	c_im;
 	double	julia_re;
 	double	julia_im;
+	double	zoom_factor;
+	double	move_factor;
+	double	color_palette;
 }				t_data;
 typedef struct s_range
 {
@@ -67,6 +72,8 @@ void	realloc_image(t_data *f);
 int		mouse_hook(int keycode, int x, int y, t_data *f);
 int		mandel_equation(t_data *f, int x, int y);
 int		julia_equation(t_data *f, int x, int y);
+int		tricorn_equation(t_data *f, int x, int y);
 t_range	mandel_scale(void);
 t_range	julia_scale(void);
+t_range	tricorn_scale(void);
 #endif

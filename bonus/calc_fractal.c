@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 14:55:41 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/23 16:56:26 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/24 22:33:18 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,7 @@ void	calc_fractal(t_data *f)
 		calc_pixel(f, mandel_equation);
 	else if (f->set == JULIA)
 		calc_pixel(f, julia_equation);
+	else if (f->set == TRICORN)
+		calc_pixel(f, tricorn_equation);
+
 }

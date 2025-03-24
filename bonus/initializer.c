@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 23:51:55 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/23 03:50:05 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/24 22:07:22 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ static void	coordinates_initializer(t_data *f, char **argv, int argc)
 			f->julia_im = 0.156;
 		}
 	}
+	else if (f->set == TRICORN)
+		scaling(f, tricorn_scale());
 }
 
 static void	set_name_initalize(t_data *f, char *set)
@@ -76,6 +78,10 @@ static void	set_name_initalize(t_data *f, char *set)
 		f->set = MANDELBROT;
 	else if (ft_strncmp(set, "Julia", 5))
 		f->set = JULIA;
+	else if (ft_strncmp(set, "Tricorn", 7))
+		f->set = TRICORN;
+	else if (ft_strncmp(set, "Burning Ship", 12))
+		f->set = BURNING_SHIP;
 }
 
 void	initializer(t_data *data, char **argv, int argc)
@@ -85,4 +91,6 @@ void	initializer(t_data *data, char **argv, int argc)
 	coordinates_initializer(data, argv, argc);
 	data->inc = 0.5;
 	data->iteration = 100;
+	data->zoom_factor = 0.2;
+	data->move_factor = 0.2;
 }
