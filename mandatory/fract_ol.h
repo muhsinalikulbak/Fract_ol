@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 19:20:24 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/25 19:10:42 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/26 01:11:32 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@
 # include "keys.h"
 # include "../minilibx-linux/mlx.h"
 # include "../libft/libft.h"
-# include <math.h>
-# include <stdio.h>
 
 typedef struct s_data
 {
@@ -37,7 +35,6 @@ typedef struct s_data
 	int		endian;
 	int		set;
 	double	iteration;
-	double	inc;
 	double	x_min;
 	double	x_max;
 	double	y_min;

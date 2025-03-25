@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 19:20:24 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/24 22:56:55 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/26 01:11:45 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@
 # include "keys.h"
 # include "../minilibx-linux/mlx.h"
 # include "../libft/libft.h"
-# include <math.h>
-# include <stdio.h>
 
 typedef struct s_data
 {
@@ -73,7 +71,9 @@ int		mouse_hook(int keycode, int x, int y, t_data *f);
 int		mandel_equation(t_data *f, int x, int y);
 int		julia_equation(t_data *f, int x, int y);
 int		tricorn_equation(t_data *f, int x, int y);
+int		burning_ship_equation(t_data *f, int x, int y);
 t_range	mandel_scale(void);
 t_range	julia_scale(void);
 t_range	tricorn_scale(void);
+t_range	burning_ship_scale(void);
 #endif

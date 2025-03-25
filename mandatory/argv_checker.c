@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 14:31:41 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/21 21:51:05 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/26 00:35:36 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,9 +84,10 @@ void	argv_check(int argc, char **argv)
 {
 	if (argc < 2)
 		print_fractals();
-	if (ft_strncmp(argv[1], "Mandelbrot", ft_strlen(argv[1])) && argc == 2)
+	if (ft_strncmp(argv[1], "Mandelbrot", 10) && ft_strlen(
+			argv[1]) == 10 && argc == 2)
 		return ;
-	else if (ft_strncmp(argv[1], "Julia", ft_strlen(argv[1])))
+	if (ft_strncmp(argv[1], "Julia", 5) && ft_strlen(argv[1]) == 5)
 	{
 		if (argc == 2)
 			return ;

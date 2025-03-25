@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 14:55:41 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/25 13:13:24 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/26 01:03:21 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,6 @@ void	calc_fractal(t_data *f)
 		calc_pixel(f, julia_equation);
 	else if (f->set == TRICORN)
 		calc_pixel(f, tricorn_equation);
+	else if (f->set == BURNING_SHIP)
+		calc_pixel(f, burning_ship_equation);
 }
