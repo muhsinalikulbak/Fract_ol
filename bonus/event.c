@@ -6,16 +6,16 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 18:47:20 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/25 02:11:03 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/25 13:10:44 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract_ol.h"
 
-static int zoom(int keycode, int x, int y, t_data *f)
+static int	zoom(int keycode, int x, int y, t_data *f)
 {
-	double mouse_x;
-	double mouse_y;
+	double	mouse_x;
+	double	mouse_y;
 
 	mouse_x = f->x_min + ((double)x / WIDTH) * (f->x_max - f->x_min);
 	mouse_y = f->y_min + ((double)y / HEIGHT) * (f->y_max - f->y_min);
