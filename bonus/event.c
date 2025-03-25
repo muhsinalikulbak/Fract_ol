@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 18:47:20 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/25 19:09:17 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/25 19:27:16 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,7 @@ int	key_event(int keycode, t_data *f)
 
 int	mouse_hook(int keycode, int x, int y, t_data *f)
 {
-	if (keycode == SCROOL_UP)
-		zoom(SCROOL_UP, x, y, f);
-	if (keycode == SCROOL_DOWN)
-		zoom(SCROOL_DOWN, x, y, f);
+	zoom(keycode, x, y, f);
 	calc_fractal(f);
 	return (0);
 }
