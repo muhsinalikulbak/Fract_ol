@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 18:47:20 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/23 16:54:39 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/25 19:12:01 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,22 @@ static int	zoom(int keycode, t_data *f)
 	range_y = f->y_max - f->y_min;
 	if (keycode == SCROOL_UP)
 	{
-		f->x_max -= range_x * 0.2;
-		f->x_min += range_x * 0.2;
-		f->y_max -= range_y * 0.2;
-		f->y_min += range_y * 0.2;
+		f->x_max -= range_x * f->zoom_factor;
+		f->x_min += range_x * f->zoom_factor;
+		f->y_max -= range_y * f->zoom_factor;
+		f->y_min += range_y * f->zoom_factor;
 	}
 	if (keycode == SCROOL_DOWN)
 	{
-		f->x_max += range_x * 0.2;
-		f->x_min -= range_x * 0.2;
-		f->y_max += range_y * 0.2;
-		f->y_min -= range_y * 0.2;
+		f->x_max += range_x * f->zoom_factor;
+		f->x_min -= range_x * f->zoom_factor;
+		f->y_max += range_y * f->zoom_factor;
+		f->y_min -= range_y * f->zoom_factor;
 	}
 	return (0);
 }
 
-static void	move(t_data *f, double distance, int keycode)
+static void	move(t_data *f, int keycode)
 {
 	double	range_x;
 	double	range_y;
@@ -45,39 +45,32 @@ static void	move(t_data *f, double distance, int keycode)
 	range_y = f->y_max - f->y_min;
 	if (keycode == KEY_W)
 	{
-		f->y_max -= range_y * distance;
-		f->y_min -= range_y * distance;
+		f->y_max -= range_y * f->move_factor;
+		f->y_min -= range_y * f->move_factor;
 	}
 	if (keycode == KEY_S)
 	{
-		f->y_max += range_y * distance;
-		f->y_min += range_y * distance;
+		f->y_max += range_y * f->move_factor;
+		f->y_min += range_y * f->move_factor;
 	}
 	if (keycode == KEY_A)
 	{
-		f->x_max -= range_x * distance;
-		f->x_min -= range_x * distance;
+		f->x_max -= range_x * f->move_factor;
+		f->x_min -= range_x * f->move_factor;
 	}
 	if (keycode == KEY_D)
 	{
-		f->x_max += range_x * distance;
-		f->x_min += range_x * distance;
+		f->x_max += range_x * f->move_factor;
+		f->x_min += range_x * f->move_factor;
 	}
 }
 
-int	key_event(int keycode, t_data *data)
+int	key_event(int keycode, t_data *f)
 {
 	if (keycode == KEY_ESC)
-		mlx_destroy(data);
-	if (keycode == KEY_W)
-		move(data, 0.2, KEY_W);
-	if (keycode == KEY_A)
-		move(data, 0.2, KEY_A);
-	if (keycode == KEY_S)
-		move(data, 0.2, KEY_S);
-	if (keycode == KEY_D)
-		move(data, 0.2, KEY_D);
-	calc_fractal(data);
+		mlx_destroy(f);
+	move(f, keycode);
+	calc_fractal(f);
 	return (0);
 }
 

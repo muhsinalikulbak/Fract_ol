@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 19:20:24 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/23 14:03:11 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/25 19:10:42 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ typedef struct s_data
 	double	c_im;
 	double	julia_re;
 	double	julia_im;
+	double	move_factor;
+	double	zoom_factor;
 }				t_data;
 typedef struct s_range
 {

@@ -6,8 +6,13 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 20:35:27 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/24 20:35:37 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/25 15:59:18 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract_ol.h"
+
+int burnin_ship_equation(t_data *f, int x, int y)
+{
+    
+}
