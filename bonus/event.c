@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 18:47:20 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/25 19:27:16 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/26 03:19:22 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,19 @@ int	key_event(int keycode, t_data *f)
 {
 	if (keycode == KEY_ESC)
 		mlx_destroy(f);
-	move(f, keycode);
+	else if (keycode == KEY_W || keycode == KEY_A
+		|| keycode == KEY_S || keycode == KEY_D)
+		move(f, keycode);
+	else if (keycode == KEY_SPACE)
+		palette(f);
+	// else if (keycode == KEY_C)
+	// {
+
+	// }
+	// else if (keycode >= KEY_ONE && keycode <= KEY_FOUR)
+	// {
+
+	// }
 	calc_fractal(f);
 	return (0);
 }

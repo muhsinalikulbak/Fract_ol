@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 19:20:24 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/26 01:11:45 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/26 03:19:33 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ typedef struct s_data
 	int		line_length;
 	int		endian;
 	int		set;
+	int		palette;
+	int		palette_code;
 	double	iteration;
 	double	inc;
 	double	x_min;
@@ -50,7 +52,6 @@ typedef struct s_data
 	double	julia_im;
 	double	zoom_factor;
 	double	move_factor;
-	double	color_palette;
 }				t_data;
 typedef struct s_range
 {
@@ -72,6 +73,7 @@ int		mandel_equation(t_data *f, int x, int y);
 int		julia_equation(t_data *f, int x, int y);
 int		tricorn_equation(t_data *f, int x, int y);
 int		burning_ship_equation(t_data *f, int x, int y);
+void	palette(t_data *f);
 t_range	mandel_scale(void);
 t_range	julia_scale(void);
 t_range	tricorn_scale(void);
