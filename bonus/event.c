@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 18:47:20 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/26 03:19:22 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/26 04:09:31 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,31 @@ static void	move(t_data *f, int keycode)
 	}
 }
 
+static void	change_set(t_data *f, int keycode)
+{
+	if (keycode == KEY_ONE)
+	{
+		f->set = MANDELBROT;
+		coordinates_initializer(f, NULL, 0);
+	}
+	else if (keycode == KEY_TWO)
+	{
+		f->set = JULIA;
+		coordinates_initializer(f, NULL, 2);
+	}
+	else if (keycode == KEY_THREE)
+	{
+		f->set = TRICORN;
+		coordinates_initializer(f, NULL, 0);
+	}
+	else if (keycode == KEY_FOUR)
+	{
+		f->set = BURNING_SHIP;
+		coordinates_initializer(f, NULL, 0);
+	}
+	calc_fractal(f);
+}
+
 int	key_event(int keycode, t_data *f)
 {
 	if (keycode == KEY_ESC)
@@ -74,13 +99,11 @@ int	key_event(int keycode, t_data *f)
 		move(f, keycode);
 	else if (keycode == KEY_SPACE)
 		palette(f);
+	else if (keycode >= KEY_ONE && keycode <= KEY_FOUR)
+		change_set(f, keycode);
 	// else if (keycode == KEY_C)
 	// {
-
-	// }
-	// else if (keycode >= KEY_ONE && keycode <= KEY_FOUR)
-	// {
-
+		
 	// }
 	calc_fractal(f);
 	return (0);
