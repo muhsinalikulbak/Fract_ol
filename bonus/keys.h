@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 16:23:18 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/26 05:03:32 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/26 14:28:03 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # define KEY_S 115
 # define KEY_D 100
 # define KEY_C 99
-# define KEY_R 82
 # define KEY_SPACE 32
 # define KEY_ONE 49
 # define KEY_TWO 50
