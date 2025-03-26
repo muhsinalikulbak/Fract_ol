@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 19:20:24 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/26 04:03:58 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/26 05:18:48 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FRACT_OL_H
 # define WIDTH 800
 # define HEIGHT 800
+# define ITERATION 100
 # define MANDELBROT 1
 # define JULIA 2
 # define TRICORN 3

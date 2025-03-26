@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 14:55:41 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/26 03:00:15 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/26 04:50:13 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ static void	calc_pixel(t_data *f, int (*equation)(t_data*, int, int))
 
 	if (f->img)
 		realloc_image(f);
+	f->iteration += f->inc;
 	y = 0;
 	while (y < HEIGHT)
 	{
