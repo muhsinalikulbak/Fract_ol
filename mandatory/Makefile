@@ -6,7 +6,7 @@
 #    By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/13 19:20:26 by mkulbak           #+#    #+#              #
-#    Updated: 2025/03/23 14:02:25 by mkulbak          ###   ########.fr        #
+#    Updated: 2025/03/28 01:21:02 by mkulbak          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,19 +30,19 @@ MAKEFLAGS += --silent
 all: $(NAME)
 
 $(NAME): $(MLX) $(LIBFT) 
-	echo "✅ $(NAME) oluşturuluyor..."
+	echo "✅ creating $(NAME).."
 	$(CC) $(CFLAGS) -o $(NAME) $(SRCS) $(LIBFT) $(MLX) $(LIBFT_FLAGS) $(MLX_FLAGS)
-	echo "✅ $(NAME) hazır!"
+	echo "✅ $(NAME) ready!"
 
 $(MLX):
-	echo "🔷 MLX derleniyor..."
+	echo "🔷 Compiling MLX..."
 	make -C $(MLX_PATH) --no-print-directory
-	echo "✅ MLX hazır!"
+	echo "✅ MLX ready!"
 
 $(LIBFT):
-	echo "🔷 LIBFT derleniyor..."
+	echo "🔷 Compiling LIBFT..."
 	make -C $(LIBFT_PATH) --no-print-directory
-	echo "✅ LIBFT hazır!"
+	echo "✅ LIBFT ready!"
 
 clean:
 	echo "🧹 Temizleniyor..."
@@ -51,10 +51,10 @@ clean:
 	echo "✅ Temizlik tamamlandı!"
 
 fclean: clean
-	echo "🧹 Tam temizlik yapılıyor..."
+	echo "🧹 Full cleaning is in progress..."
 	rm -f $(NAME)
 	make -C $(LIBFT_PATH) fclean --no-print-directory
-	echo "✅ Tam temizlik tamamlandı!"
+	echo "✅ Full cleaning completed!"
 
 re: fclean all
 

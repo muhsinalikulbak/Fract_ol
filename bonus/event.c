@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 18:47:20 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/27 13:29:18 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/28 01:25:38 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ int	key_event(int keycode, t_data *f)
 	else if (keycode == KEY_UP || keycode == KEY_DOWN
 		|| keycode == KEY_RIGHT || keycode == KEY_LEFT)
 		move(f, keycode);
-	else if (keycode == KEY_J || keycode == KEY_K )
+	else if (keycode == KEY_J || keycode == KEY_K)
 	{
 		change_iter(f, keycode);
 		return (0);
