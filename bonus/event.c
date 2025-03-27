@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 18:47:20 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/26 14:29:53 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/27 03:55:15 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,22 +43,22 @@ static void	move(t_data *f, int keycode)
 
 	range_x = f->x_max - f->x_min;
 	range_y = f->y_max - f->y_min;
-	if (keycode == KEY_W)
+	if (keycode == KEY_W || keycode == KEY_UP)
 	{
 		f->y_max -= range_y * f->move_factor;
 		f->y_min -= range_y * f->move_factor;
 	}
-	if (keycode == KEY_S)
+	else if (keycode == KEY_S || keycode == KEY_DOWN)
 	{
 		f->y_max += range_y * f->move_factor;
 		f->y_min += range_y * f->move_factor;
 	}
-	if (keycode == KEY_A)
+	else if (keycode == KEY_A || keycode == KEY_LEFT)
 	{
 		f->x_max -= range_x * f->move_factor;
 		f->x_min -= range_x * f->move_factor;
 	}
-	if (keycode == KEY_D)
+	else if (keycode == KEY_D || keycode == KEY_RIGHT)
 	{
 		f->x_max += range_x * f->move_factor;
 		f->x_min += range_x * f->move_factor;
@@ -67,22 +67,22 @@ static void	move(t_data *f, int keycode)
 
 static void	change_set(t_data *f, int keycode)
 {
-	if (keycode == KEY_ONE)
+	if (keycode == KEY_ONE && f->set != MANDELBROT)
 	{
 		f->set = MANDELBROT;
 		coordinates_initializer(f, NULL, 0);
 	}
-	else if (keycode == KEY_TWO)
+	else if (keycode == KEY_TWO && f->set != JULIA)
 	{
 		f->set = JULIA;
 		coordinates_initializer(f, NULL, 2);
 	}
-	else if (keycode == KEY_THREE)
+	else if (keycode == KEY_THREE && f->set != TRICORN)
 	{
 		f->set = TRICORN;
 		coordinates_initializer(f, NULL, 0);
 	}
-	else if (keycode == KEY_FOUR)
+	else if (keycode == KEY_FOUR && f->set != BURNING_SHIP)
 	{
 		f->set = BURNING_SHIP;
 		coordinates_initializer(f, NULL, 0);
@@ -93,15 +93,21 @@ int	key_event(int keycode, t_data *f)
 {
 	if (keycode == KEY_ESC)
 		mlx_destroy(f);
-	else if (keycode == KEY_W || keycode == KEY_A
-		|| keycode == KEY_S || keycode == KEY_D)
-		move(f, keycode);
 	else if (keycode == KEY_SPACE)
 		palette(f);
 	else if (keycode >= KEY_ONE && keycode <= KEY_FOUR)
 		change_set(f, keycode);
-	else if (keycode == KEY_C)
-		f->inc = 0.5;
+	else if (keycode == KEY_W || keycode == KEY_A
+		|| keycode == KEY_S || keycode == KEY_D)
+		move(f, keycode);
+	else if (keycode == KEY_UP || keycode == KEY_DOWN
+		|| keycode == KEY_RIGHT || keycode == KEY_LEFT)
+		move(f, keycode);
+	else if (keycode == KEY_J || keycode == KEY_K )
+	{
+		change_iter(f, keycode);
+		return (0);
+	}
 	else
 		return (0);
 	calc_fractal(f);

@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keys.h                                             :+:      :+:    :+:   */
+/*   change_iter.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/21 16:23:18 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/27 04:11:26 by mkulbak          ###   ########.fr       */
+/*   Created: 2025/03/27 02:18:30 by mkulbak           #+#    #+#             */
+/*   Updated: 2025/03/27 04:00:19 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef KEYS_H
-# define KEYS_H
-# define EVENT_CLOSE_BTN 17
-# define KEY_ESC 65307
-# define KEY_W 119
-# define KEY_A 97
-# define KEY_S 115
-# define KEY_D 100
-# define KEY_UP 65362
-# define KEY_DOWN 65364
-# define KEY_LEFT 65361
-# define KEY_RIGHT 65363
-# define SCROOL_UP 4
-# define SCROOL_DOWN 5
-#endif
+#include "fract_ol.h"
+
+void	change_iter(t_data *f, int keycode)
+{
+	if (keycode == KEY_J)
+		f->inc = 1;
+	else if (keycode == KEY_K)
+	{
+		if (f->inc == 0)
+			return ;
+		f->inc = 0;
+		f->iteration = ITERATION;
+	}
+	calc_fractal(f);
+}

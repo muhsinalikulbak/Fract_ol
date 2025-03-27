@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 19:20:24 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/26 05:18:48 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/27 03:18:49 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ int		tricorn_equation(t_data *f, int x, int y);
 int		burning_ship_equation(t_data *f, int x, int y);
 void	palette(t_data *f);
 void	coordinates_initializer(t_data *f, char **argv, int argc);
+void	change_iter(t_data *f, int keycode);
 t_range	mandel_scale(void);
 t_range	julia_scale(void);
 t_range	tricorn_scale(void);

@@ -6,7 +6,7 @@
 #    By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/13 19:20:26 by mkulbak           #+#    #+#              #
-#    Updated: 2025/03/26 04:59:10 by mkulbak          ###   ########.fr        #
+#    Updated: 2025/03/27 02:19:27 by mkulbak          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,9 @@ LIBFT_PATH = ../libft
 LIBFT = $(LIBFT_PATH)/libft.a
 LIBFT_FLAGS = -L$(LIBFT_PATH) -lft
 
-SRCS = fract_ol.c argv_checker.c calc_fractal.c mlx_utils.c \
-initializer.c dimensions.c event.c julia.c mandelbrot.c burning_ship.c tricorn.c  color.c
+SRCS = fract_ol.c argv_checker.c calc_fractal.c mlx_utils.c initializer.c \
+ dimensions.c event.c julia.c mandelbrot.c burning_ship.c tricorn.c  color.c \
+ change_iter.c
 
 MAKEFLAGS += --silent
 

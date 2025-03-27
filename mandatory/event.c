@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 18:47:20 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/25 19:27:45 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/27 04:12:32 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,22 +43,22 @@ static void	move(t_data *f, int keycode)
 
 	range_x = f->x_max - f->x_min;
 	range_y = f->y_max - f->y_min;
-	if (keycode == KEY_W)
+	if (keycode == KEY_W || keycode == KEY_UP)
 	{
 		f->y_max -= range_y * f->move_factor;
 		f->y_min -= range_y * f->move_factor;
 	}
-	if (keycode == KEY_S)
+	else if (keycode == KEY_S || keycode == KEY_DOWN)
 	{
 		f->y_max += range_y * f->move_factor;
 		f->y_min += range_y * f->move_factor;
 	}
-	if (keycode == KEY_A)
+	else if (keycode == KEY_A || keycode == KEY_LEFT)
 	{
 		f->x_max -= range_x * f->move_factor;
 		f->x_min -= range_x * f->move_factor;
 	}
-	if (keycode == KEY_D)
+	else if (keycode == KEY_D || keycode == KEY_RIGHT)
 	{
 		f->x_max += range_x * f->move_factor;
 		f->x_min += range_x * f->move_factor;
