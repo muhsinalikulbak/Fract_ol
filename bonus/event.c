@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 18:47:20 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/27 03:55:15 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/27 13:29:18 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,22 +67,22 @@ static void	move(t_data *f, int keycode)
 
 static void	change_set(t_data *f, int keycode)
 {
-	if (keycode == KEY_ONE && f->set != MANDELBROT)
+	if (keycode == KEY_ONE)
 	{
 		f->set = MANDELBROT;
 		coordinates_initializer(f, NULL, 0);
 	}
-	else if (keycode == KEY_TWO && f->set != JULIA)
+	else if (keycode == KEY_TWO)
 	{
 		f->set = JULIA;
 		coordinates_initializer(f, NULL, 2);
 	}
-	else if (keycode == KEY_THREE && f->set != TRICORN)
+	else if (keycode == KEY_THREE)
 	{
 		f->set = TRICORN;
 		coordinates_initializer(f, NULL, 0);
 	}
-	else if (keycode == KEY_FOUR && f->set != BURNING_SHIP)
+	else if (keycode == KEY_FOUR)
 	{
 		f->set = BURNING_SHIP;
 		coordinates_initializer(f, NULL, 0);
