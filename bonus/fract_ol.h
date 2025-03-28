@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 19:20:24 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/27 03:18:49 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/28 16:15:57 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # include "keys.h"
 # include "../minilibx-linux/mlx.h"
 # include "../libft/libft.h"
+# include <math.h>
 
 typedef struct s_data
 {
