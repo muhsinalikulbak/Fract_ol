@@ -6,15 +6,15 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 19:20:24 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/28 16:15:57 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/29 00:09:59 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACT_OL_H
 # define FRACT_OL_H
-# define WIDTH 800
-# define HEIGHT 800
-# define ITERATION 100
+# define WIDTH 600
+# define HEIGHT 600
+# define ITERATION 134
 # define MANDELBROT 1
 # define JULIA 2
 # define TRICORN 3
