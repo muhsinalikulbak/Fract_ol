@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 19:20:24 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/29 00:09:59 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/30 01:27:55 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,6 @@ typedef struct s_data
 	void	*img;
 	void	*win;
 	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-	int		set;
-	int		palette;
-	int		palette_code;
-	double	iteration;
 	double	inc;
 	double	x_min;
 	double	x_max;
@@ -54,6 +47,13 @@ typedef struct s_data
 	double	julia_im;
 	double	zoom_factor;
 	double	move_factor;
+	double	iteration;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+	int		set;
+	int		palette;
+	int		palette_code;
 }				t_data;
 typedef struct s_range
 {

@@ -6,7 +6,7 @@
 #    By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/30 00:38:33 by mkulbak           #+#    #+#              #
-#    Updated: 2025/03/30 00:38:36 by mkulbak          ###   ########.fr        #
+#    Updated: 2025/03/30 00:42:26 by mkulbak          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,6 @@ BONUS = fractol_bonus
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -I./
 
-# Düzeltilmiş yollar
 MLX_PATH = ./minilibx-linux
 MLX = $(MLX_PATH)/libmlx.a
 MLX_FLAGS = -L$(MLX_PATH) -lmlx -lXext -lX11 -lm
