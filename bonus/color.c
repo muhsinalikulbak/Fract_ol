@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 04:09:38 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/28 16:15:53 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/30 18:57:47 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void	palette(t_data *f)
 {
 	f->palette_code++;
 	if (f->palette_code == 2)
-		f->palette = 0xEFCAE0;  // Pastel yeşil
+		f->palette = 0xFCD000;  
 	else if (f->palette_code == 3)
-		f->palette = 0xAA5500;  // Kiremit kırmızısı
+		f->palette = 0xEBCDFF;
 	else if (f->palette_code == 4)
 		f->palette = 0xFFFFFF;  // Beyaz
 	else if (f->palette_code == 5)
@@ -30,7 +30,7 @@ void	palette(t_data *f)
 	else if (f->palette_code == 8)
 		f->palette = 0xABCDE0;  // Açık mavi-yeşil
 	else if (f->palette_code == 9)
-		f->palette = 0xFCD000;  // Altın sarısı
+		f->palette = 0xEFCAE0;
 	else
 	{
 		f->palette = 0xFF0000;  // Parlak kırmızı
