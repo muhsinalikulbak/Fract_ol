@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 23:51:55 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/30 14:58:23 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/30 22:16:09 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,5 +98,5 @@ void	initializer(t_data *data, char **argv, int argc)
 	data->zoom_factor = 0.198567856;
 	data->move_factor = 0.2;
 	data->palette_code = 1;
-	data->palette = 0xEFCAEE;
+	data->palette = 0xE0F7FA;
 }

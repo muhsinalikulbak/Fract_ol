@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 04:09:38 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/30 18:57:47 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/30 22:30:56 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,26 @@ void	palette(t_data *f)
 {
 	f->palette_code++;
 	if (f->palette_code == 2)
-		f->palette = 0xFCD000;  
+		f->palette = 0xFFB300;  
 	else if (f->palette_code == 3)
-		f->palette = 0xEBCDFF;
+		f->palette = 0xFF9F1C;
 	else if (f->palette_code == 4)
-		f->palette = 0xFFFFFF;  // Beyaz
+		f->palette = 0xFFD23F;  // Beyaz
 	else if (f->palette_code == 5)
-		f->palette = 0x00AFAF;  // Turkuaz
+		f->palette = 0xFFF3B0;  // Turkuaz
 	else if (f->palette_code == 6)
-		f->palette = 0x5555FF;  // Açık mavi
+		f->palette = 0xFEFEBA;  // Açık mavi
 	else if (f->palette_code == 7)
-		f->palette = 0xEA00EA;  // Parlak mor
+		f->palette = 0xFFD166;  // Parlak mor
 	else if (f->palette_code == 8)
-		f->palette = 0xABCDE0;  // Açık mavi-yeşil
+		f->palette = 0xE3F2FD;
 	else if (f->palette_code == 9)
-		f->palette = 0xEFCAE0;
-	else
+		f->palette = 0x4DD0E1;
+	else if (f->palette_code == 10)
+		f->palette = 0xFF0000; 
+	else if (f->palette_code == 11)
 	{
-		f->palette = 0xFF0000;  // Parlak kırmızı
 		f->palette_code = 1;
+		f->palette = 0xE0F7FA;
 	}
 }
