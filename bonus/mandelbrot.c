@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 16:56:28 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/28 16:02:55 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/30 18:15:25 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	mandel_equation(t_data *f, int x, int y)
 	int		iter;
 	double	temp_reel;
 
-	iter = 0;
+	iter = 1;
 	f->z_re = 0;
 	f->z_im = 0;
 	f->c_re = f->x_min + ((double)x / WIDTH) * (f->x_max - f->x_min);
