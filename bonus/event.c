@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 18:47:20 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/30 01:27:17 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/30 14:58:57 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,10 @@ static void	change_set(t_data *f, int keycode)
 	else if (keycode == KEY_TWO)
 	{
 		f->set = JULIA;
-		coordinates_initializer(f, NULL, 0);
+		if (f->init_julia)
+			coordinates_initializer(f, NULL, 0);
+		else
+			coordinates_initializer(f, NULL, 2);
 	}
 	else if (keycode == KEY_THREE)
 	{

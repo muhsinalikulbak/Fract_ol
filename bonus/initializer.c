@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 23:51:55 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/30 01:30:17 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/30 14:58:23 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ void	coordinates_initializer(t_data *f, char **argv, int argc)
 		scaling(f, burning_ship_scale());
 	else if (f->set == JULIA)
 	{
+		f->init_julia = true;
 		scaling(f, julia_scale());
 		if (argc == 4)
 		{
@@ -90,6 +91,7 @@ void	initializer(t_data *data, char **argv, int argc)
 {
 	mlx_initializer(data, argv[1]);
 	set_name_initalize(data, argv[1]);
+	data->init_julia = false;
 	coordinates_initializer(data, argv, argc);
 	data->inc = 0.0;
 	data->iteration = ITERATION;

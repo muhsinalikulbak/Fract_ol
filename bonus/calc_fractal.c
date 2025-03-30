@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 14:55:41 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/28 16:16:48 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/30 14:44:23 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	calc_pixel(t_data *f, int (*equation)(t_data*, int, int))
 		while (x < WIDTH)
 		{
 			iter = equation(f, x, y);
-			my_mlx_pixel_put(f, x, y, (iter * f->palette) / f->iteration);
+			my_mlx_pixel_put(f, x, y, (iter * f->palette));
 			x++;
 		}
 		y++;
