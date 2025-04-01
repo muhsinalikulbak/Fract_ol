@@ -1,18 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color.c                                            :+:      :+:    :+:   */
+/*   change.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 04:09:38 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/31 03:26:04 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/04/01 02:52:22 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract_ol.h"
 
-void	palette(t_data *f)
+void	change_set(t_data *f, int keycode)
+{
+	if (keycode == KEY_ONE)
+	{
+		f->set = MANDELBROT;
+		coordinates_initializer(f);
+	}
+	else if (keycode == KEY_TWO)
+	{
+		f->set = JULIA;
+		coordinates_initializer(f);
+	}
+	else if (keycode == KEY_THREE)
+	{
+		f->set = TRICORN;
+		coordinates_initializer(f);
+	}
+	else if (keycode == KEY_FOUR)
+	{
+		f->set = BURNING_SHIP;
+		coordinates_initializer(f);
+	}
+	else if (keycode == KEY_FIVE)
+	{
+		f->set = DYNAMIC_JULIA;
+		coordinates_initializer(f);
+	}
+}
+
+void	change_palette(t_data *f)
 {
 	f->palette_code++;
 	if (f->palette_code == 2)
@@ -38,4 +67,18 @@ void	palette(t_data *f)
 		f->palette_code = 1;
 		f->palette = 0xE0F7FA;
 	}
+}
+
+void	change_iter(t_data *f, int keycode)
+{
+	if (keycode == KEY_J)
+		f->inc = 1;
+	else if (keycode == KEY_K)
+	{
+		if (f->inc == 0)
+			return ;
+		f->inc = 0;
+		f->iteration = ITERATION;
+	}
+	calc_fractal(f);
 }

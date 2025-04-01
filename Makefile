@@ -6,7 +6,7 @@
 #    By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/30 00:38:33 by mkulbak           #+#    #+#              #
-#    Updated: 2025/03/31 02:58:15 by mkulbak          ###   ########.fr        #
+#    Updated: 2025/03/31 13:54:02 by mkulbak          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,8 +33,8 @@ SRCS = $(addprefix $(SRCS_DIR)/, \
 BONUS_DIR = bonus
 BONUS_SRCS = $(addprefix $(BONUS_DIR)/, \
 	fract_ol.c argv_checker.c calc_fractal.c mlx_utils.c initializer.c \
-	dimensions.c event.c hook.c julia.c mandelbrot.c burning_ship.c tricorn.c color.c \
-	change_iter.c)
+	dimensions.c event.c hook.c julia.c mandelbrot.c burning_ship.c tricorn.c \
+	change.c dynamic_julia.c)
 
 MAKEFLAGS += --silent
 

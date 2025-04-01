@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 23:51:55 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/30 22:16:09 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/04/01 03:09:35 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static void	scaling(t_data *f, t_range scale)
 	f->y_max = scale.y_max;
 }
 
-void	coordinates_initializer(t_data *f, char **argv, int argc)
+void	coordinates_initializer(t_data *f)
 {
 	if (f->set == MANDELBROT)
 		scaling(f, mandel_scale());
@@ -58,19 +58,12 @@ void	coordinates_initializer(t_data *f, char **argv, int argc)
 		scaling(f, tricorn_scale());
 	else if (f->set == BURNING_SHIP)
 		scaling(f, burning_ship_scale());
-	else if (f->set == JULIA)
+	else if (f->set == JULIA || f->set == DYNAMIC_JULIA)
 	{
-		f->init_julia = true;
 		scaling(f, julia_scale());
-		if (argc == 4)
+		if (f->set == DYNAMIC_JULIA)
 		{
-			f->julia_re = ft_atob(argv[2]);
-			f->julia_im = ft_atob(argv[3]);
-		}
-		else if (argc == 2)
-		{
-			f->julia_re = -0.8;
-			f->julia_im = 0.156;
+			mlx_loop_hook(f->init, track_mouse_position, f);
 		}
 	}
 }
@@ -85,18 +78,29 @@ static void	set_name_initalize(t_data *f, char *set)
 		f->set = TRICORN;
 	else if (ft_strncmp(set, "Burning Ship", 12))
 		f->set = BURNING_SHIP;
+	else if (ft_strncmp(set, "Dynamic Julia", 13))
+		f->set = DYNAMIC_JULIA;
 }
 
-void	initializer(t_data *data, char **argv, int argc)
+void	initializer(t_data *f, char **argv, int argc)
 {
-	mlx_initializer(data, argv[1]);
-	set_name_initalize(data, argv[1]);
-	data->init_julia = false;
-	coordinates_initializer(data, argv, argc);
-	data->inc = 0.0;
-	data->iteration = ITERATION;
-	data->zoom_factor = 0.198567856;
-	data->move_factor = 0.2;
-	data->palette_code = 1;
-	data->palette = 0xE0F7FA;
+	mlx_initializer(f, argv[1]);
+	set_name_initalize(f, argv[1]);
+	if (argc == 4)
+	{
+		f->julia_re = ft_atob(argv[2]);
+		f->julia_im = ft_atob(argv[3]);
+	}
+	else if (argc == 2)
+	{
+		f->julia_re = -0.8;
+		f->julia_im = 0.156;
+	}
+	coordinates_initializer(f);
+	f->inc = 0.0;
+	f->iteration = ITERATION;
+	f->zoom_factor = 0.198567856;
+	f->move_factor = 0.2;
+	f->palette_code = 1;
+	f->palette = 0xE0F7FA;
 }

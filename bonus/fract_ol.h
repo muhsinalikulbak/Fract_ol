@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 19:20:24 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/31 03:10:23 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/04/01 03:21:35 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # define JULIA 2
 # define TRICORN 3
 # define BURNING_SHIP 4
+# define DYNAMIC_JULIA 5
 # define RESET   "\033[0m"
 # define RED     "\033[31m"
 # define GREEN   "\033[32m"
@@ -26,7 +27,6 @@
 # include "keys.h"
 # include "../minilibx-linux/mlx.h"
 # include "../libft/libft.h"
-# include <math.h>
 
 typedef struct s_data
 {
@@ -45,6 +45,8 @@ typedef struct s_data
 	double	c_im;
 	double	julia_re;
 	double	julia_im;
+	double	dy_julia_re;
+	double	dy_julia_im;
 	double	zoom_factor;
 	double	move_factor;
 	double	iteration;
@@ -54,7 +56,6 @@ typedef struct s_data
 	int		set;
 	int		palette;
 	int		palette_code;
-	bool	init_julia;
 }				t_data;
 typedef struct s_range
 {
@@ -76,8 +77,9 @@ int		mandel_equation(t_data *f, int x, int y);
 int		julia_equation(t_data *f, int x, int y);
 int		tricorn_equation(t_data *f, int x, int y);
 int		burning_ship_equation(t_data *f, int x, int y);
-void	palette(t_data *f);
-void	coordinates_initializer(t_data *f, char **argv, int argc);
+int		dynamic_julia(t_data *f, int x, int y);
+void	change_palette(t_data *f);
+void	coordinates_initializer(t_data *f);
 void	change_iter(t_data *f, int keycode);
 void	change_set(t_data *f, int keycode);
 void	move(t_data *f, int keycode);

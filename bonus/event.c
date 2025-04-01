@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 03:00:00 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/31 03:02:59 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/04/01 02:56:29 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,9 @@ int	zoom(int keycode, int x, int y, t_data *f)
 		f->y_min += (f->y_min - mouse_y) * f->zoom_factor;
 		f->y_max += (f->y_max - mouse_y) * f->zoom_factor;
 	}
-	return (0);
+	else
+		return (EXIT_FAILURE);
+	return (EXIT_SUCCESS);
 }
 
 void	move(t_data *f, int keycode)
@@ -62,32 +64,5 @@ void	move(t_data *f, int keycode)
 	{
 		f->x_max += range_x * f->move_factor;
 		f->x_min += range_x * f->move_factor;
-	}
-}
-
-void	change_set(t_data *f, int keycode)
-{
-	if (keycode == KEY_ONE)
-	{
-		f->set = MANDELBROT;
-		coordinates_initializer(f, NULL, 0);
-	}
-	else if (keycode == KEY_TWO)
-	{
-		f->set = JULIA;
-		if (f->init_julia)
-			coordinates_initializer(f, NULL, 0);
-		else
-			coordinates_initializer(f, NULL, 2);
-	}
-	else if (keycode == KEY_THREE)
-	{
-		f->set = TRICORN;
-		coordinates_initializer(f, NULL, 0);
-	}
-	else if (keycode == KEY_FOUR)
-	{
-		f->set = BURNING_SHIP;
-		coordinates_initializer(f, NULL, 0);
 	}
 }

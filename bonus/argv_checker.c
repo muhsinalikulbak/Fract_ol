@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 14:31:41 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/26 01:40:31 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/03/31 16:05:53 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	print_fractals(void)
 	write_colored(RED, "\nInvalid Argument!\n");
 	write_colored(BLUE, "\nCurrent fractals : ");
 	write_colored(GREEN, " Mandelbrot, Julia,");
-	write_colored(GREEN, " Burning Ship, Tricorn \n");
+	write_colored(GREEN, " Burning Ship, Tricorn, Dynamic Julia\n");
 	exit(EXIT_FAILURE);
 }
 
@@ -93,6 +93,9 @@ void	argv_check(int argc, char **argv)
 		return ;
 	if (ft_strncmp(argv[1], "Burning Ship", 12) && ft_strlen(
 			argv[1]) == 12 && argc == 2)
+		return ;
+	if (ft_strncmp(argv[1], "Dynamic Julia", 13) && ft_strlen(
+			argv[1]) == 13 && argc == 2)
 		return ;
 	if (ft_strncmp(argv[1], "Julia", 5) && ft_strlen(argv[1]) == 5)
 	{
