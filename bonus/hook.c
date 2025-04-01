@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 18:47:20 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/04/01 03:30:26 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/04/01 14:55:57 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,10 @@ int	key_hook(int keycode, t_data *f)
 	{
 		change_iter(f, keycode);
 		return (0);
+	}
+	else if (keycode == KEY_G)
+	{
+		f->gradian = !f->gradian;
 	}
 	else
 		return (0);

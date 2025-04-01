@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 19:20:24 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/04/01 03:21:35 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/04/01 14:53:58 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ typedef struct s_data
 	int		set;
 	int		palette;
 	int		palette_code;
+	bool	gradian;
 }				t_data;
 typedef struct s_range
 {

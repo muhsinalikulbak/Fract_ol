@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 23:51:55 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/04/01 03:09:35 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/04/01 14:54:11 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,4 +103,5 @@ void	initializer(t_data *f, char **argv, int argc)
 	f->move_factor = 0.2;
 	f->palette_code = 1;
 	f->palette = 0xE0F7FA;
+	f->gradian = false;
 }
