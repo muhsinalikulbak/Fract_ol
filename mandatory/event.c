@@ -65,12 +65,17 @@ static void	move(t_data *f, int keycode)
 	}
 }
 
-int	key_event(int keycode, t_data *f)
+int	key_event(int key, t_data *f)
 {
-	if (keycode == KEY_ESC)
+	if (key == KEY_ESC)
 		mlx_destroy(f);
-	move(f, keycode);
-	calc_fractal(f);
+	if (key == KEY_W || key == KEY_A || key == KEY_S
+		|| key == KEY_D || key == KEY_DOWN || key == KEY_UP
+		|| key == KEY_RIGHT || key == KEY_LEFT)
+	{
+		move(f, key);
+		calc_fractal(f);
+	}
 	return (0);
 }
 
@@ -78,7 +83,10 @@ int	mouse_hook(int keycode, int x, int y, t_data *f)
 {
 	(void)x;
 	(void)y;
-	zoom(keycode, f);
-	calc_fractal(f);
+	if (keycode == SCROOL_DOWN || keycode == SCROOL_UP)
+	{
+		zoom(keycode, f);
+		calc_fractal(f);
+	}
 	return (0);
 }
