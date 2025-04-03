@@ -12,60 +12,72 @@
 
 #ifndef FRACT_OL_H
 # define FRACT_OL_H
+
+// Define constants for window dimensions and iterations
 # define WIDTH 600
 # define HEIGHT 600
 # define ITERATION 134
+
+// Define fractal types
 # define MANDELBROT 1
 # define JULIA 2
 # define TRICORN 3
 # define BURNING_SHIP 4
 # define DYNAMIC_JULIA 5
+
+// Define color codes for terminal output
 # define RESET   "\033[0m"
 # define RED     "\033[31m"
 # define GREEN   "\033[32m"
 # define BLUE    "\033[34m"
+
+// Include necessary headers
 # include "keys.h"
 # include "../minilibx-linux/mlx.h"
 # include "../libft/libft.h"
 
+// Structure to hold fractal data
 typedef struct s_data
 {
-	void	*init;
-	void	*img;
-	void	*win;
-	char	*addr;
-	double	inc;
-	double	x_min;
-	double	x_max;
-	double	y_min;
-	double	y_max;
-	double	z_re;
-	double	z_im;
-	double	c_re;
-	double	c_im;
-	double	julia_re;
-	double	julia_im;
-	double	dy_julia_re;
-	double	dy_julia_im;
-	double	zoom_factor;
-	double	move_factor;
-	double	iteration;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-	int		set;
-	int		palette;
-	int		palette_code;
-	bool	gradian;
+	void	*init; // Pointer to the MLX initialization
+	void	*img; // Pointer to the image
+	void	*win; // Pointer to the window
+	char	*addr; // Address of the image data
+	double	inc; // Increment for iterations
+	double	x_min; // Minimum x-coordinate
+	double	x_max; // Maximum x-coordinate
+	double	y_min; // Minimum y-coordinate
+	double	y_max; // Maximum y-coordinate
+	double	z_re; // Real part of z
+	double	z_im; // Imaginary part of z
+	double	c_re; // Real part of c
+	double	c_im; // Imaginary part of c
+	double	julia_re; // Real part of Julia set
+	double	julia_im; // Imaginary part of Julia set
+	double	dy_julia_re; // Change in real part of Julia set
+	double	dy_julia_im; // Change in imaginary part of Julia set
+	double	zoom_factor; // Factor for zooming
+	double	move_factor; // Factor for moving
+	double	iteration; // Number of iterations for fractal calculation
+	int		bits_per_pixel; // Bits per pixel for the image
+	int		line_length; // Length of a line in the image
+	int		endian; // Endianness of the image
+	int		set; // Current fractal set
+	int		palette; // Current color palette
+	int		palette_code; // Code for the current palette
+	bool	gradian; // Flag for gradient coloring
 }				t_data;
+
+// Structure to hold range data
 typedef struct s_range
 {
-	double	x_min;
-	double	x_max;
-	double	y_min;
-	double	y_max;
+	double	x_min; // Minimum x-coordinate for the range
+	double	x_max; // Maximum x-coordinate for the range
+	double	y_min; // Minimum y-coordinate for the range
+	double	y_max; // Maximum y-coordinate for the range
 }				t_range;
 
+// Function prototypes
 void	argv_check(int argc, char **argv);
 void	my_mlx_pixel_put(t_data	*data, int x, int y, int color);
 void	initializer(t_data *data, char **argv, int argc);
