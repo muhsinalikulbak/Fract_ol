@@ -6,7 +6,7 @@
 #    By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/28 22:23:51 by mkulbak           #+#    #+#              #
-#    Updated: 2025/04/08 01:13:21 by mkulbak          ###   ########.fr        #
+#    Updated: 2025/04/08 02:48:35 by mkulbak          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,11 +18,6 @@ SRCS			=	ft_isalnum.c ft_isprint.c ft_memcmp.c  ft_putchar_fd.c ft_split.c \
 					ft_toupper.c ft_calloc.c  ft_isdigit.c ft_memchr.c  ft_memset.c  \
 					ft_putstr_fd.c  ft_strjoin.c ft_strmapi.c ft_strtrim.c ft_striteri.c
 OBJS			= $(SRCS:.c=.o)
-
-BONUS			=	ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c ft_lstclear_bonus.c \
-					ft_lstdelone_bonus.c ft_lstiter_bonus.c ft_lstlast_bonus.c \
-					ft_lstmap_bonus.c ft_lstnew_bonus.c ft_lstsize_bonus.c
-BONUS_OBJS		= $(BONUS:.c=.o)
 
 NAME			= libft.a
 CC				= cc
@@ -36,14 +31,14 @@ $(NAME):		$(OBJS)
 				ar rcs $(NAME) $(OBJS) 
 
 clean:
-				$(RM) $(OBJS) $(BONUS_OBJS)
+				$(RM) $(OBJS)
 
 fclean:			clean
 				$(RM) $(NAME)
 
 re:				fclean all
 
-bonus:			$(OBJS) $(BONUS_OBJS)
-				ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
+bonus:			$(OBJS)
+				ar rcs $(NAME) $(OBJS)
 
 .PHONY:			all clean fclean re bonus
