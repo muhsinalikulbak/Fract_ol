@@ -6,7 +6,7 @@
 #    By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/28 22:23:51 by mkulbak           #+#    #+#              #
-#    Updated: 2025/04/07 19:46:34 by mkulbak          ###   ########.fr        #
+#    Updated: 2025/04/08 01:13:21 by mkulbak          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ RM				= rm -f
 CFLAGS			= -Wall -Wextra -Werror
 
 
-all:			$(NAME) clean
+all:			$(NAME)
 
 $(NAME):		$(OBJS)
 				ar rcs $(NAME) $(OBJS) 
