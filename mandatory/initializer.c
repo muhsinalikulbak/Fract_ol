@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 23:51:55 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/26 00:37:20 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/04/07 20:37:12 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ static void	coordinates_initializer(t_data *f, char **argv, int argc)
 		scaling(f, julia_scale());
 		if (argc == 4)
 		{
-			f->julia_re = ft_atob(argv[2]);
-			f->julia_im = ft_atob(argv[3]);
+			f->julia_re = ft_atod(argv[2]);
+			f->julia_im = ft_atod(argv[3]);
 		}
 		else
 		{
