@@ -6,12 +6,11 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 18:47:20 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/04/01 14:55:57 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/04/07 20:34:12 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract_ol.h"
-#include <stdio.h>
 
 int	key_hook(int keycode, t_data *f)
 {
@@ -64,7 +63,6 @@ int	track_mouse_position(t_data *f)
 				f->x_max - f->x_min);
 		f->dy_julia_im = f->y_min + ((double)y / HEIGHT) * (
 				f->y_max - f->y_min);
-		printf("x = %f y = %f\n", f->dy_julia_re, f->dy_julia_im);
 		calc_fractal(f);
 	}
 	return (0);
