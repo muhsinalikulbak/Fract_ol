@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 23:51:55 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/04/01 14:54:11 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/04/07 19:47:06 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,8 @@ void	initializer(t_data *f, char **argv, int argc)
 	set_name_initalize(f, argv[1]);
 	if (argc == 4)
 	{
-		f->julia_re = ft_atob(argv[2]);
-		f->julia_im = ft_atob(argv[3]);
+		f->julia_re = ft_atod(argv[2]);
+		f->julia_im = ft_atod(argv[3]);
 	}
 	else if (argc == 2)
 	{

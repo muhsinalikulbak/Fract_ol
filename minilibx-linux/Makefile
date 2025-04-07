@@ -10,7 +10,6 @@
 
 ## Please use configure script
 
-MAKEFLAGS +=
 all	: do_configure
 
 do_configure	:

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atob.c                                          :+:      :+:    :+:   */
+/*   ft_atod.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 20:11:36 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/20 01:01:13 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/04/07 19:49:26 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static double	decimal_part(int i, double res, const char *str)
 	return (res);
 }
 
-double	ft_atob(const char *str)
+double	ft_atod(const char *str)
 {
 	int		i;
 	double	res;

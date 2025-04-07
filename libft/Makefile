@@ -6,12 +6,12 @@
 #    By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/28 22:23:51 by mkulbak           #+#    #+#              #
-#    Updated: 2025/03/20 00:04:27 by mkulbak          ###   ########.fr        #
+#    Updated: 2025/04/07 19:46:34 by mkulbak          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS			=	ft_isalnum.c ft_isprint.c ft_memcmp.c  ft_putchar_fd.c ft_split.c \
-					ft_strlcat.c ft_strncmp.c ft_substr.c ft_atob.c  ft_isalpha.c \
+					ft_strlcat.c ft_strncmp.c ft_substr.c ft_atod.c  ft_isalpha.c \
 					ft_itoa.c ft_memcpy.c  ft_putendl_fd.c ft_strchr.c  ft_strlcpy.c \
 					ft_strnstr.c ft_tolower.c ft_bzero.c   ft_isascii.c  \
 					ft_memmove.c ft_putnbr_fd.c  ft_strdup.c  ft_strlen.c  ft_strrchr.c \
