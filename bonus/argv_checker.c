@@ -6,7 +6,7 @@
 /*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 14:31:41 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/03/31 16:05:53 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/04/07 20:40:53 by mkulbak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,12 @@ static bool	count_check(char *str, int plus_c, int minus_c, int dot_c)
 	}
 	if (plus_c == 1 && minus_c == 0 && dot_c == 1 && str[0] == '+')
 	{
-		if (str[ft_strlen(str) - 1] != '.')
+		if (str[ft_strlen(str) - 1] != '.' && str[1] != '.')
 			return (true); // Valid if plus at start and dot not at end
 	}
 	if (plus_c == 0 && minus_c == 1 && dot_c == 1 && str[0] == '-')
 	{
-		if (str[ft_strlen(str) - 1] != '.')
+		if (str[ft_strlen(str) - 1] != '.' && str[1] != '.')
 			return (true); // Valid if minus at start and dot not at end
 	}
 	return (false); // Invalid case
