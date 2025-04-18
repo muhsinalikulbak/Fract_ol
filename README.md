@@ -35,27 +35,6 @@ Example usage:
 ```
 
 Features:
-- Visualization of Mandelbrot and Julia sets
-- Panning with WASD and arrow keys
-- Center zoom capability with mouse
-  
-![Açıklama metni](https://github.com/muhsinalikulbak/Fract_ol/blob/master/Screenshots/Screenshot%20from%202025-04-03%2017-34-01.png)
-### Bonus Part (Recommended)
-```
-./fractol_bonus [fractal_type] [parameters (optional)]
-```
-
-Example usage:
-```
-./fractol_bonus Mandelbrot
-./fractol_bonus Julia
-./fractol_bonus Julia -0.6 0.6    # Custom parameter values for Julia set
-./fractol_bonus Tricorn
-./fractol_bonus "Burning Ship"
-./fractol_bonus "Dynamic Julia"
-```
-
-Features:
 - More fractal types: Mandelbrot, Julia, Tricorn, Burning Ship, and Dynamic Julia
 - Zoom based on mouse position
 - Panning with arrow keys
@@ -64,6 +43,12 @@ Features:
   - Space: Change color palette
   - J key: Iteration increment mode that increases iteration count with each zoom
   - K key: Turn off iteration increment mode and return to original value
+- Quick fractal switching:
+  - Key 1: Switch to Mandelbrot fractal
+  - Key 2: Switch to Julia fractal
+  - Key 3: Switch to Tricorn fractal
+  - Key 4: Switch to Burning Ship fractal
+  - Key 5: Switch to Dynamic Julia fractal
 
 ## Controls
 - WASD/Arrow Keys: Pan the view
@@ -72,6 +57,7 @@ Features:
 - G: Toggle gradient mode on/off
 - J: Enable iteration increment mode
 - K: Disable iteration increment mode
+- 1-5: Switch between different fractal types (bonus part only)
 
 ![Açıklama metni](https://github.com/muhsinalikulbak/Fract_ol/blob/master/Screenshots/ezgif-7eb9ce2ab90a1b.gif)
 ## Recommended Experience
