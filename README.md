@@ -11,7 +11,15 @@ Fractals are infinitely complex patterns that are self-similar across different 
 The most famous examples include the Mandelbrot set and Julia sets, which this project visualizes. These mathematical entities display infinite complexity, allowing you to zoom in forever and discover new details at every level.
 
 ![Açıklama metni](https://github.com/muhsinalikulbak/Fract_ol/blob/master/Screenshots/Screenshot%20from%202025-04-03%2017-30-55.png)
+## Installation and Compilation
 
+Download and compile the project:
+```
+git clone [repository-url]
+cd fract_ol
+make        # Compile the mandatory part
+make bonus  # Compile the bonus part
+```
 ## User Guide
 
 ### Mandatory Part
