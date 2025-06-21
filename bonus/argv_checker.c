@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   argv_checker.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mkulbak <mkulbak@student.42.fr>            +#+  +:+       +#+        */
+/*   By: muhsin <muhsin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 14:31:41 by mkulbak           #+#    #+#             */
-/*   Updated: 2025/04/07 20:40:53 by mkulbak          ###   ########.fr       */
+/*   Updated: 2025/06/22 01:02:55 by muhsin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,25 +33,28 @@ static void	print_fractals(void)
 // Function to check the validity of a numeric string
 static bool	count_check(char *str, int plus_c, int minus_c, int dot_c)
 {
+	int	len;
+
+	len = ft_strlen(str);
 	if (plus_c == 0 && minus_c == 0 && dot_c == 0)
 		return (true); // Valid if no signs or dots
-	if (plus_c == 1 && minus_c == 0 && dot_c == 0 && str[0] == '+')
+	if (plus_c == 1 && minus_c == 0 && dot_c == 0 && str[0] == '+' && len > 1)
 		return (true); // Valid if single plus at start
-	if (plus_c == 0 && minus_c == 1 && dot_c == 0 && str[0] == '-')
+	if (plus_c == 0 && minus_c == 1 && dot_c == 0 && str[0] == '-' && len > 1)
 		return (true); // Valid if single minus at start
 	if (plus_c == 0 && minus_c == 0 && dot_c == 1)
 	{
-		if (str[0] != '.' && str[ft_strlen(str) - 1] != '.')
+		if (str[0] != '.' && str[len - 1] != '.')
 			return (true); // Valid if single dot not at start or end
 	}
 	if (plus_c == 1 && minus_c == 0 && dot_c == 1 && str[0] == '+')
 	{
-		if (str[ft_strlen(str) - 1] != '.' && str[1] != '.')
+		if (str[len - 1] != '.' && str[1] != '.')
 			return (true); // Valid if plus at start and dot not at end
 	}
 	if (plus_c == 0 && minus_c == 1 && dot_c == 1 && str[0] == '-')
 	{
-		if (str[ft_strlen(str) - 1] != '.' && str[1] != '.')
+		if (str[len - 1] != '.' && str[1] != '.')
 			return (true); // Valid if minus at start and dot not at end
 	}
 	return (false); // Invalid case
