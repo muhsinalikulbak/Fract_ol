@@ -14,9 +14,14 @@ The most famous examples include the Mandelbrot set and Julia sets, which this p
 ## Installation and Compilation
 
 Download and compile the project:
+
+First, install the necessary packages for mlx to work
 ```
-git clone [repository-url]
-cd fract_ol
+sudo apt install libbsd-dev
+```
+```
+git clone [https://github.com/muhsinalikulbak/Fract_ol.git]
+cd Fract_ol
 make        # Compile the mandatory part
 make bonus  # Compile the bonus part
 ```
