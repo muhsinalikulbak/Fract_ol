@@ -76,3 +76,10 @@ void	move(t_data *f, int keycode)
 		f->x_min += range_x * f->move_factor; // Move the view right
 	}
 }
+
+// Function to handle expose events (window redraw)
+int	expose_event(t_data *f)
+{
+	calc_fractal(f);
+	return (0);
+}

@@ -64,6 +64,7 @@ int		mlx_destroy(t_data *data);
 int		key_event(int keycode, t_data *data);
 void	realloc_image(t_data *f);
 int		mouse_hook(int keycode, int x, int y, t_data *f);
+int		expose_event(t_data *f);
 t_range	mandel_scale(void);
 t_range	julia_scale(void);
 #endif

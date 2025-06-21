@@ -15,6 +15,7 @@
 
 // Define key codes for keyboard input
 # define EVENT_CLOSE_BTN 17 // Close button
+# define EXPOSE 12 // Expose event
 # define KEY_ESC 65307 // Escape key
 # define KEY_W 119 // W key for moving up
 # define KEY_A 97 // A key for moving left

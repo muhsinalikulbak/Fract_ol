@@ -21,6 +21,7 @@ int	main(int argc, char **argv)
 	initializer(data, argv, argc);
 	calc_fractal(data);
 	mlx_hook(data->win, EVENT_CLOSE_BTN, 1L << 17, mlx_destroy, data);
+	mlx_hook(data->win, EXPOSE, 1L << 15, expose_event, data);
 	mlx_key_hook(data->win, key_event, data);
 	mlx_mouse_hook(data->win, mouse_hook, data);
 	mlx_loop(data->init);

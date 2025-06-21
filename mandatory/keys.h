@@ -13,6 +13,7 @@
 #ifndef KEYS_H
 # define KEYS_H
 # define EVENT_CLOSE_BTN 17
+# define EXPOSE 12
 # define KEY_ESC 65307
 # define KEY_W 119
 # define KEY_A 97

@@ -65,6 +65,12 @@ static void	move(t_data *f, int keycode)
 	}
 }
 
+int	expose_event(t_data *f)
+{
+	calc_fractal(f);
+	return (0);
+}
+
 int	key_event(int key, t_data *f)
 {
 	if (key == KEY_ESC)

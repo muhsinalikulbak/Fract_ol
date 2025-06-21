@@ -97,6 +97,7 @@ void	change_iter(t_data *f, int keycode);
 void	change_set(t_data *f, int keycode);
 void	move(t_data *f, int keycode);
 int		zoom(int keycode, int x, int y, t_data *f);
+int		expose_event(t_data *f);
 int		track_mouse_position(t_data *data);
 t_range	mandel_scale(void);
 t_range	julia_scale(void);
